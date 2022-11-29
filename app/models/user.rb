@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :users_badges_as_giver, class_name: "UsersBadge", foreign_key: :giver_id
   has_many :users_badges_as_receiver, class_name: "UsersBadge", foreign_key: :receiver_id
 
+  has_one_attached :avatar
+
   validates :first_name, :last_name, :nickname, :birthday, presence: true
   validates :nickname, uniqueness: true
   validates :nickname, length: { minimum: 5 }
