@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_151952) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_152506) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,6 +89,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_151952) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_badges", force: :cascade do |t|
+    t.bigint "giver_id", null: false
+    t.bigint "receiver_id", null: false
+    t.bigint "badge_id", null: false
+    t.bigint "activity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_users_badges_on_activity_id"
+    t.index ["badge_id"], name: "index_users_badges_on_badge_id"
+    t.index ["giver_id"], name: "index_users_badges_on_giver_id"
+    t.index ["receiver_id"], name: "index_users_badges_on_receiver_id"
+  end
+
   add_foreign_key "activities", "categories"
   add_foreign_key "activities", "users", column: "users_id"
   add_foreign_key "category_badges", "badges"
@@ -97,4 +110,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_151952) do
   add_foreign_key "participations", "users"
   add_foreign_key "private_messages", "activities"
   add_foreign_key "private_messages", "users"
+  add_foreign_key "users_badges", "activities"
+  add_foreign_key "users_badges", "badges"
+  add_foreign_key "users_badges", "users", column: "giver_id"
+  add_foreign_key "users_badges", "users", column: "receiver_id"
 end
