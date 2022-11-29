@@ -1,5 +1,6 @@
+# table de jointure user->activity
 class Participation < ApplicationRecord
   belongs_to :user
   belongs_to :activity
-  # ajouter une date à laquelle on s'inscrit a une activité?
+  # add a participate_at date?
 end
