@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_141129) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_151039) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,10 +30,36 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_141129) do
     t.index ["users_id"], name: "index_activities_on_users_id"
   end
 
+  create_table "badges", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "icon", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "activity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_participations_on_activity_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
+  create_table "private_messages", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "activity_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_private_messages_on_activity_id"
+    t.index ["user_id"], name: "index_private_messages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,4 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_141129) do
 
   add_foreign_key "activities", "categories"
   add_foreign_key "activities", "users", column: "users_id"
+  add_foreign_key "participations", "activities"
+  add_foreign_key "participations", "users"
+  add_foreign_key "private_messages", "activities"
+  add_foreign_key "private_messages", "users"
 end
