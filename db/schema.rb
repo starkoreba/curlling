@@ -23,11 +23,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_152506) do
     t.integer "price"
     t.integer "progress"
     t.bigint "category_id", null: false
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_activities_on_category_id"
-    t.index ["users_id"], name: "index_activities_on_users_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "badges", force: :cascade do |t|
@@ -103,7 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_152506) do
   end
 
   add_foreign_key "activities", "categories"
-  add_foreign_key "activities", "users", column: "users_id"
+  add_foreign_key "activities", "users"
   add_foreign_key "category_badges", "badges"
   add_foreign_key "category_badges", "categories"
   add_foreign_key "participations", "activities"
