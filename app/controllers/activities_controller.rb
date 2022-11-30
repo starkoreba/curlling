@@ -11,9 +11,9 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
-
+    @activity.user = current_user
     if @activity.save
-      redirect_to activities_path(@activity)
+      redirect_to activities_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,6 +22,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-  params.require(:activity).permit(:title, :start_date, :end_date, :description, :price, :address)
+  params.require(:activity).permit(:title, :description, :start_date, :end_date, :price, :address, :category_id)
   end
 end
