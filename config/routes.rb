@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :activities do
+    resources :participations, only: :show
+  end
+
   get 'activities/index'
   get 'activities/show'
   get 'activites/index'
