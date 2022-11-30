@@ -1,2 +1,2 @@
-class UsersBadgesController < ApplicationController
+class UserBadgesController < ApplicationController
 end

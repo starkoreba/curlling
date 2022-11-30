@@ -8,18 +8,20 @@
 
 # require "open-uri"
 
+puts "Cleansing user_badges ..."
+UserBadge.destroy_all
+puts "Creating category_badges..."
+CategoryBadge.destroy_all
+puts "Cleaning participations..."
+Participation.destroy_all
+puts "Cleaning badges..."
+Badge.destroy_all
 puts "Cleaning activities..."
 Activity.destroy_all
 puts "Cleaning categories..."
 Category.destroy_all
-puts "Cleansing users_badges ..."
-UsersBadge.destroy_all
-puts "Cleaning badges..."
-Badge.destroy_all
 puts "Cleaning users..."
 User.destroy_all
-puts "Cleaning participations..."
-Participation.destroy_all
 
 
 puts "Creating badges..."
@@ -77,8 +79,8 @@ puts "Finished!"
 
 
 puts "Creating userbadges..."
-user_badge1 = UsersBadge.create!(giver: user2, receiver: user1, badge: badge1, activity: activity1)
-user_badge2 = UsersBadge.create!(giver: user1, receiver: user2, badge: badge2, activity: activity1)
+user_badge1 = UserBadge.create!(giver: user2, receiver: user1, badge: badge1, activity: activity1)
+user_badge2 = UserBadge.create!(giver: user1, receiver: user2, badge: badge2, activity: activity1)
 puts "Finished!"
 
 
