@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  get 'activities/index'
-  get 'activities/show'
-  get 'activites/index'
-  get 'activites/new'
-  get 'activites/create'
-  get 'activites/edit'
-  get 'activites/update'
-  get 'activites/destroy'
   devise_for :users
-  root to: "pages#home"
+  resources :activities
+
+  # get 'activities'
+  # get 'activities/:id'
+  # get 'activites/new'
+  # get 'activites/create'
+  # get 'activites/edit'
+  # get 'activites/update'
+  # get 'activites/destroy'
+
+  # root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
