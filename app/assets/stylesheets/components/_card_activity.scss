@@ -1,17 +1,17 @@
 .small-card-activity {
   height: 100%;
-  width: 150px;
+
 }
 
 .small-card-activity > img {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   object-fit: cover;
-  border-radius: 12px 12px 12px 12px;
+  border-radius: 5px;
 }
 
 .small-card-activity h2 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   margin: 0;
 }
@@ -30,46 +30,38 @@
 }
 
 .small-card-activity .small-card-activity-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+  padding: 5px 0px;
 }
 
-.small-card-activity-infos .small-card-activity-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
-
+/*----------LARGE CARD-----------*/
 .large-card-product {
   overflow: hidden;
-  height: 120px;
+  height: 70px;
+  margin-bottom: 15px;
   display: flex;
   align-items: top;
 }
 
 .large-card-product img {
-  height: 75px;
-  width: 75px;
+  height: 65px;
+  width: 65px;
   object-fit: cover;
   border-radius: 5px;
 }
 
 .large-card-product h2 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   margin: 0;
+  margin-top: 10px;
+  width: 50%;
 }
 
 .large-card-product h3 {
   font-size: 14px;
-  line-height: 1.4;
   font-weight: bold;
   margin: 0;
-  margin-top: 8px;
+  margin-top: 5px;
 }
 
 .large-card-product p {
@@ -80,16 +72,20 @@
   margin-top: 8px;
 }
 
+.header p {
+  width: 50%;
+}
+
 .large-card-product .large-card-product-infos {
-  padding: 16px;
+  padding: 0px 10px;
+  width: 100%;
 }
 
 .large-card-product .large-card-product-infos .header{
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+}
 
-  p {
-    margin-left: 24px;
-  }
+.header > p {
+  margin-top: 10px
 }
