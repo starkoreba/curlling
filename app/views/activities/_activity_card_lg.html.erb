@@ -4,6 +4,7 @@
     <div>
       <h2><%= activity.title.truncate(15) %></h2>
       <p>Start_date <br> End_date</p>
+    </div>
       <h3 class="small-card-activity-pricing">
         <% if activity.price > 0 %>
           <%= activity.price %>€
@@ -11,6 +12,5 @@
           Gratuit
         <% end %>
       </h3>
-    </div>
   </div>
 </div>

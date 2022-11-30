@@ -31,6 +31,10 @@
 
 .small-card-activity .small-card-activity-infos {
   padding: 5px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
 }
 
 /*----------LARGE CARD-----------*/

@@ -5,6 +5,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
+    # array d'array
   end
 
   def show
