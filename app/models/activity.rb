@@ -1,7 +1,9 @@
 class Activity < ApplicationRecord
   belongs_to :category
-  belongs_to :users
+  belongs_to :user
   has_many :private_messages
+
+  has_many_attached :photos
 
   enum :progress, { pending: 0, in_progress: 1, archive: 2, cancel: 3 }, default: :pending
   validates :title, :description, :address, :start_date, :end_date, presence: true
