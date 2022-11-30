@@ -1,36 +1,35 @@
-.card-activity {
+.small-card-activity {
   height: 100%;
   width: 150px;
 }
 
-.card-activity > img {
+.small-card-activity > img {
   height: 150px;
   width: 150px;
   object-fit: cover;
   border-radius: 12px 12px 12px 12px;
 }
 
-.card-activity h2 {
+.small-card-activity h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-activity h3 {
+.small-card-activity h3 {
   font-size: 14px;
   font-weight: bold;
   margin: 0;
   margin-top: 4px;
 }
 
-.card-activity p {
+.small-card-activity p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
-
-.card-activity .card-activity-infos {
+.small-card-activity .small-card-activity-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -38,9 +37,59 @@
   position: relative;
 }
 
-.card-activity-infos .card-activity-user {
+.small-card-activity-infos .small-card-activity-user {
   position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.large-card-product {
+  overflow: hidden;
+  height: 120px;
+  display: flex;
+  align-items: top;
+}
+
+.large-card-product img {
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.large-card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.large-card-product h3 {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: bold;
+  margin: 0;
+  margin-top: 8px;
+}
+
+.large-card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.large-card-product .large-card-product-infos {
+  padding: 16px;
+}
+
+.large-card-product .large-card-product-infos .header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  p {
+    margin-left: 24px;
+  }
 }
