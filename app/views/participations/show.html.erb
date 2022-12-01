@@ -1,24 +1,35 @@
 
-<div class="card-category" >
-Culture
-<%# <% if @participation.category == "culture" %>
-<%# <%= Culture %>
+<% if @activity.category.name == "Culture" %>
+    <div class="card-category-culture" >
+      <%= Culture %>
+    </div>
 
-<%# <% elsif @participation.category == "sport" %>
-<%# <%=Sport %>
+<% elsif @activity.category.name == "Sport" %>
+<p>hello </p>
+    <div class="card-category-sport" >
+      <%= "Sport" %>
+    </div>
 
-<%# <% elsif @participation.category == "jeux de société" %>
-<%# <%= Jeux de société %>
+<% elsif @participation.activity.category == "jeux de société" %>
+    <div class="card-category-games" >
+      <%= Jeux de société %>
+    </div>
 
-<%# <% if @participation.category == "jeux vidéo" %>
-<%# <%= Jeux vidéo %>
+<% elsif @participation.activity.category == "jeux vidéo" %>
+    <div class="card-category-videogames" >
+      <%= Jeux vidéo %>
+    </div>
 
-<%# <% if @participation.category == "soirées" %>
-<%# <%= Soirées %>
+<% elsif @participation.activity.category == "soirées" %>
+    <div class="card-category-parties" >
+      <%= Soirées %>
+    </div>
 
-<%# <% if @participation.category == "activités manuelles" %>
-<%# <%= Activités manuelles %>
-</div>
+<% elsif @participation.activity.category == "activités manuelles" %>
+    <div class="card-category-manual-activities" >
+      <%= Activitées manuelles %>
+    </div>
+<% end %>
 
 <div class="container mt-5">
   <div class="row">
@@ -36,31 +47,7 @@ Culture
 </div>
 
 
-<div class="container">
-<%= image_tag "categories/culture.png", alt: " Categorie Culture " %>
-</div>
-
-<div class="card-category-culture" >
-<%# <% if @participation.category == "culture" %>
-<%# <%= Culture %>
-</div>
-
-<div class="card-category-sport" >
-<%# <% elsif @participation.category == "sport" %>
-<%# <%=Sport %>
-</div>
-
-<div class="card-category-games" >
-<%# <% elsif @participation.category == "jeux de société" %>
-<%# <%= Jeux de société %>
-</div>
-
-<div class="card-category-video-games" >
-<%# <% if @participation.category == "jeux vidéo" %>
-<%# <%= Jeux vidéo %>
-</div>
-
-<div class="card-category-parties" >
-<%# <% if @participation.category == "soirées" %>
-<%# <%= Soirées %>
-</div>
+<%# <% if @participation.activity.category = "culture" %> %>
+    <%# <div class="card-category-culture" > %>
+      <%# <%= Culture %> %>
+    <%# </div> %>
