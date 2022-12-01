@@ -27,9 +27,11 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
+    @activity = Activity.find(params[:id])
   end
 
   def update
+
   end
 
   def destroy
@@ -39,7 +41,8 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-  params.require(:activity).permit(:title, :description, :start_date, :end_date, :price, :address, :category_id)
+    params.require(:activity).permit(:title, :description, :start_date, :end_date, :price, :address, :category_id)
+  end
 
   def params_activity
     params.require(:activity).permit(:title, :description, :address, :start_date, :end_date, :price)
