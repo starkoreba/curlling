@@ -2,50 +2,56 @@
   <div class="container">
     <div class="row">
       <div class="col text-start">
-        <h2>Edit</h2>
       </div>
       <div class="col text-center">
         <h1>Profile</h1>
       </div>
       <div class="col text-end">
-        <h2>logout</h2>
+        <P><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></P>
       </div>
     </div>
   </div>
   <div class="position-absolute top-100 start-50 translate-middle">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-big" %>
+    <% if current_user.avatar.attached? == false %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-big" %>
+    <% else %>
+      <%= cl_image_tag(current_user.avatar.key, class: "avatar-big", crop: :fill) %>
+    <% end %>
   </div>
 </div>
 <div class="container title-profil">
-  <h1>Victoria Robitson</h1>
-  <h3>20 years old</h3>
-  <div class="row">
-    <div class="col text-center">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "badge-large" %>
-      <h3>Fun</h3>
-    </div>
-    <div class="col text-center">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "badge-large" %>
-      <h3>Bon buveur</h3>
-    </div>
-    <div class="col text-center">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "badge-large" %>
-      <h3>Bon danseur</h3>
-    </div>
-    <div class="col text-center">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "badge-large" %>
-      <h3>Malin</h3>
-    </div>
-    <div class="col text-center">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "badge-large" %>
-      <h3>Couche tard</h3>
-    </div>
+  <h1><%= current_user.first_name %> <%= current_user.last_name.capitalize %></h1>
+  <h3><strong><%= ((Time.now - current_user.birthday.to_time)/(60*60*24*365)).floor %></strong> years old</h3>
+  <!-- =======================
+  Badge START -->
+  <div class="row flex-nowrap overflow-auto">
+    <% current_user.user_badges_as_receiver.map(&:badge).each do |badge| %>
+      <div class="col align-self-start">
+        <%= image_tag badge.icon, class: "badge-large" %>
+        <h3><%= badge.name %> x <%= current_user.user_badges_as_receiver.map(&:badge).count %></h3>
+      </div>
+    <% end %>
+  </div>
+  <!-- =======================
+  Badge END -->
+</div>
+<!-- =======================
+Event list START -->
+<div class="container">
+  <div class="text-center mt-5">
+        <%= link_to "Past event", "#", class: "btn btn-ghost active" %>
+        <%= link_to "Next event", "#", class: "btn btn-ghost" %>
+  </div>
+  <div class="mt-3">
+    <% current_user.activities.each do |activity|%>
+      <% if activity.end_date < Date.today %>
+        <%= render "activities/activity_card", activity: activity %>
+      <% end %>
+      <% if activity.end_date > Date.today %>
+        <%= render "activities/activity_card", activity: activity %>
+      <% end %>
+    <% end %>
   </div>
 </div>
-<div class="text-center mt-5">
-      <%= link_to "Past event", "#", class: "btn btn-ghost active" %>
-      <%= link_to "Next event", "#", class: "btn btn-ghost" %>
-</div>
-<div class="mt-3">
-  <%= render "shared/large_card_activity"%>
-</div>
+<!-- =======================
+Event list END -->

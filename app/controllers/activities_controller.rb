@@ -40,6 +40,7 @@ class ActivitiesController < ApplicationController
 
   def activity_params
   params.require(:activity).permit(:title, :description, :start_date, :end_date, :price, :address, :category_id)
+  end
 
   def params_activity
     params.require(:activity).permit(:title, :description, :address, :start_date, :end_date, :price)
@@ -52,4 +53,5 @@ class ActivitiesController < ApplicationController
   def set_category
     @category = Category.find(params[:category_id])
   end
+
 end

@@ -23,7 +23,6 @@ Category.destroy_all
 puts "Cleaning users..."
 User.destroy_all
 
-p"truc"
 
 puts "Creating badges..."
 badge1 = Badge.create!(name: "Fun", icon: 'fun_badge')
