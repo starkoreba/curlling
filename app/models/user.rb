@@ -19,5 +19,4 @@ class User < ApplicationRecord
   validates :nickname, uniqueness: true
   validates :nickname, length: { minimum: 5 }
   validates :score, numericality: { only_integer: true }
-
 end
