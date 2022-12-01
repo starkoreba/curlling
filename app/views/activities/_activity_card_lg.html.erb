@@ -1,0 +1,16 @@
+<div class="small-card-activity">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="small-card-activity-infos">
+    <div>
+      <h2><%= activity.title.truncate(13) %></h2>
+      <p class="pt-2"><%= activity.start_date.strftime("%-d/%-m/%y: %H:%M") %> <br> <%= activity.end_date.strftime("%-d/%-m/%y: %H:%M") %></p>
+    </div>
+      <h3 class="small-card-activity-pricing">
+        <% if activity.price > 0 %>
+          <%= activity.price %>€
+        <% else %>
+          Gratuit
+        <% end %>
+      </h3>
+  </div>
+</div>
