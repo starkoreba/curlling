@@ -4,16 +4,17 @@ class ActivitiesController < ApplicationController
   before_action :set_category, only: %i[new create]
 
   def index
-    if params[:query].present?
-      @categories = Category.global_search(:query)
-    else
-      @categories = Category.all
-    end
+    # if params[:query].present?
+    #   @categories = Category.global_search(:query)
+    # else
+    # end
+    @categories = Category.all
     @activities_cat = @categories.map { |category| category.activities }
     # array d'array
   end
 
   def show
+    @new_participation = Participation.new
   end
 
   def new
@@ -21,6 +22,13 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    @activity = Activity.new(activity_params)
+    @activity.user = current_user
+    if @activity.save
+      redirect_to activities_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -34,6 +42,10 @@ class ActivitiesController < ApplicationController
   end
 
   private
+
+  def activity_params
+  params.require(:activity).permit(:title, :description, :start_date, :end_date, :price, :address, :category_id)
+  end
 
   def params_activity
     params.require(:activity).permit(:title, :description, :address, :start_date, :end_date, :price, :category_id)
