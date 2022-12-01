@@ -1,12 +1,24 @@
 <h1 class="text-center my-2">Curlling</h1>
-<div class="row flex-nowrap overflow-auto mt-5">
+<div class="row mt-5">
   <% @activities_cat.each do |activities| %>
+  <% unless activities.empty? %>
+  <div class="col align-self-start">
+  <%= activities.first.category.name %>
+  </div>
+  <% end %>
+  <div class="row flex-nowrap overflow-auto mt-2">
     <% activities.each do |activity| %>
-      <div class="col">
+      <div class="col align-self-end">
         <%= render "activities/activity_card_lg", activity: activity %>
       </div>
-      <% end %>
     <% end %>
+    <% activities.each do |activity| %>
+      <div class="col align-self-end">
+        <%= render "activities/activity_card_lg", activity: activity %>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
 </div>
 <div class="row flex-nowrap overflow-auto mt-5">
     <% @activities_cat.each do |activities| %>
