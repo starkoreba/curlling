@@ -6,16 +6,3 @@
   %>
   <%= submit_tag "Search", class: "btn gradient-btn" %>
 <% end %>
-
-<%# <div class="container"> %>
-<%= simple_form_for(@activity) do |f| %>
- <%= f.input :title %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :address %>
-  <%= f.association :category %>
-  <%= f.submit %>
-<% end %>
-<%# </div> %>
