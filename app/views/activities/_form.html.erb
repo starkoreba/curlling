@@ -1,3 +1,11 @@
+<%= form_with url: activities_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Trouver une activité"
+  %>
+  <%= submit_tag "Search", class: "btn gradient-btn" %>
+<% end %>
 
 <%# <div class="container"> %>
 <%= simple_form_for(@activity) do |f| %>

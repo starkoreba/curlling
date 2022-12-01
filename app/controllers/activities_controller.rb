@@ -4,12 +4,17 @@ class ActivitiesController < ApplicationController
   before_action :set_category, only: %i[new create]
 
   def index
+    # if params[:query].present?
+    #   @categories = Category.global_search(:query)
+    # else
+    # end
     @categories = Category.all
     @activities_cat = @categories.map { |category| category.activities }
     # array d'array
   end
 
   def show
+    @new_participation = Participation.new
   end
 
   def new
@@ -43,7 +48,7 @@ class ActivitiesController < ApplicationController
   end
 
   def params_activity
-    params.require(:activity).permit(:title, :description, :address, :start_date, :end_date, :price)
+    params.require(:activity).permit(:title, :description, :address, :start_date, :end_date, :price, :category_id)
   end
 
   def set_activity

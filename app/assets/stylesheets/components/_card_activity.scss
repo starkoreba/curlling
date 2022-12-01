@@ -3,7 +3,7 @@
 
 }
 
-.small-card-activity > img {
+.small-card-activity > a > img {
   height: 100px;
   width: 100px;
   object-fit: cover;
@@ -54,7 +54,7 @@
 }
 
 .large-card-product h2 {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
   margin: 0;
   margin-top: 10px;
