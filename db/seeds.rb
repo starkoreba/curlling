@@ -66,14 +66,14 @@ puts "Finished!"
 
 
 puts "Creating activities..."
-activity1 = Activity.create!(title: "Après-midi escalade", start_date: d3, end_date: d4, description: "Je propose une sortie escalade à la salle Arkose de Bordeaux. Rdv 15h. Tenue confortable à prévoir.", price: 11, progress: 0, address: '170 cours du Médoc, 33300 Bordeaux', user: user1, category: category1)
+activity1 = Activity.create!(title: "Après-midi escalade", start_date: d3, end_date: d4, description: "Je propose une sortie escalade à la salle Arkose de Bordeaux. Rdv 15h. Tenue confortable à prévoir.", price: 11, address: '170 cours du Médoc, 33300 Bordeaux', user: user1, category: category1)
 
 puts "Created #{activity1.title}"
 
-activity2 = Activity.create!(title: "Soirée jeux", start_date: d5, end_date: d6, description: "Pour les plus joueurs d'entre vous, soirée jeux aux Jeux Barjo.", price: 10, progress: 0, address: '12 Rue Saint-James, 33300 Bordeaux', user: user1, category: category5)
+activity2 = Activity.create!(title: "Soirée jeux", start_date: d5, end_date: d6, description: "Pour les plus joueurs d'entre vous, soirée jeux aux Jeux Barjo.", price: 10, address: '12 Rue Saint-James, 33300 Bordeaux', user: user1, category: category5)
 puts "Created #{activity2.title}"
 
-activity3 = Activity.create!(title: "Bordeaux à vélo", start_date: d7, end_date: d8, description: "Après-midi à vélo dans Bordeaux", price: 0, progress: 0, address: '12 Rue Saint-James, 33300 Bordeaux', user: user1, category: category1)
+activity3 = Activity.create!(title: "Bordeaux à vélo", start_date: d7, end_date: d8, description: "Après-midi à vélo dans Bordeaux", price: 0, address: '12 Rue Saint-James, 33300 Bordeaux', user: user1, category: category1)
 puts "Created #{activity3.title}"
 puts "Finished!"
 

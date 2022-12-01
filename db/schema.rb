@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_095051) do
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
     t.integer "price"
-    t.integer "progress"
+    t.integer "progress", default: 0, null: false
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

@@ -4,7 +4,11 @@ class ActivitiesController < ApplicationController
   before_action :set_category, only: %i[new create]
 
   def index
-    @categories = Category.all
+    if params[:query].present?
+      @categories = Category.global_search(:query)
+    else
+      @categories = Category.all
+    end
     @activities_cat = @categories.map { |category| category.activities }
     # array d'array
   end
