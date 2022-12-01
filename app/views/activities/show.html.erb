@@ -1,1 +1,6 @@
 <%= render "activities/show", activity: @activity %>
+<div class="row">
+<%= simple_form_for [@activity, @new_participation] do |f| %>
+  <%= f.button :submit, "I'm in", class: "gradient-btn g-btn-lg" %>
+<% end %>
+</div>
