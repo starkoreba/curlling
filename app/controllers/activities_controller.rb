@@ -14,6 +14,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @new_participation = Participation.new
   end
 
   def new

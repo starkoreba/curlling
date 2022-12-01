@@ -1,0 +1,69 @@
+<div class="row m-1 shadow">
+<% if @activity.picture.attached? %>
+  <%= cl_image_tag(@activity.picture.key, crop: :fill, class: "rounded-3 px-0") %>
+<% else %>
+  <img class="rounded-3 px-0" src="https://www.deezer-blog.com/assets/sites/2/Vaporwave-blog.png" />
+<% end %>
+</div>
+<div>
+<img style="border-radius:50%; width:50px;" src="https://images.khinsider.com/Graphics/100x100/niccy%20xion%201.png" alt="">
+<%= cl_image_tag(@activity.user.avatar.key, crop: :fill) %></div>
+<div class="row mt-3">
+<h2><%= @activity.title %></h2>
+<p class="mb-0"><%= @activity.start_date.strftime("%-d/%-m/%y à %H:%M") %></p>
+<p class="mb-0"><%= @activity.address %></p>
+<span>
+<% if activity.price > 0 %>
+  <%= activity.price %>€
+<% else %>
+  Gratuit
+<% end %></span>
+<p class="mb-0 text-muted text-justify"><%= @activity.description %></p>
+</div>
+<div class="row flex-nowrap overflow-auto my-5" style="margin-left:0.25rem;">
+<div class="col p-0">
+<img style="border-radius:50%; width:50px;" src="https://images.khinsider.com/Graphics/100x100/niccy%20xion%201.png" alt="">
+</div>
+<div class="col p-0">
+<img style="border-radius:50%; width:50px;" src="https://images.khinsider.com/Graphics/100x100/niccy%20xion%201.png" alt="">
+</div>
+<div class="col p-0">
+<img style="border-radius:50%; width:50px;" src="https://images.khinsider.com/Graphics/100x100/niccy%20xion%201.png" alt="">
+</div>
+<div class="col p-0">
+<img style="border-radius:50%; width:50px;" src="https://images.khinsider.com/Graphics/100x100/niccy%20xion%201.png" alt="">
+</div>
+<div class="col p-0">
+<img style="border-radius:50%; width:50px;" src="https://images.khinsider.com/Graphics/100x100/niccy%20xion%201.png" alt="">
+</div>
+<div class="col p-0">
+<img style="border-radius:50%; width:50px;" src="https://images.khinsider.com/Graphics/100x100/niccy%20xion%201.png" alt="">
+</div>
+<div class="col p-0">
+<img style="border-radius:50%; width:50px;" src="https://images.khinsider.com/Graphics/100x100/niccy%20xion%201.png" alt="">
+</div>
+<div class="col p-0">
+<img style="border-radius:50%; width:50px;" src="https://images.khinsider.com/Graphics/100x100/niccy%20xion%201.png" alt="">
+</div>
+<div class="col p-0">
+<img style="border-radius:50%; width:50px;" src="https://images.khinsider.com/Graphics/100x100/niccy%20xion%201.png" alt="">
+</div>
+
+<%# <!--each participations.users |participant|
+<div class="col">
+if avatar.attached?
+cl_image_tag(participant.avatar.key, crop: :fill)
+else
+placeholder
+end
+</div>
+end--> %>
+</div>
+<div class="row">
+<%= form_with url: activities_path, method: :get, class: "d-flex" do %>
+<%= submit_tag "I'm in", class: "btn gradient-btn g-btn-lg" %>
+<% end %>
+<%= simple_form_for [@activity, @new_participation] do |f| %>
+  <%= f.button :submit %>
+<% end %>
+</div>
