@@ -1,21 +1,14 @@
-
 <div class="footer-navbar">
   <nav class="navbar fixed-bottom navbar-lewagon">
     <div class="container container-fluid py-3">
       <div class="text-center">
-        <a class="navbar-brand" href="#">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </a>
+        <%= link_to "", "/", class: "fa-solid fa-magnifying-glass" %>
       </div>
       <div class="text-center">
-        <a class="navbar-brand" href="#">
-          <i class="fa-solid fa-plus"></i>
-        </a>
+        <%= link_to "", new_activity_path(current_user), class: "fa-solid fa-plus" %>
       </div>
       <div class="text-center">
-        <a class="navbar-brand" href="#">
-          <i class="fa-solid fa-user"></i>
-        </a>
+        <%= link_to "", user_path(current_user), class: "fa-solid fa-user" %>
       </div>
     </div>
   </nav>
