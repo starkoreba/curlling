@@ -20,7 +20,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     @activity.user = current_user
     if @activity.save
-      redirect_to activities_path
+
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +31,9 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-
+    @activity = Activity.find(params[:id])
+    @activity.update(activity_params)
+    redirect_to activity_path
   end
 
   def destroy
