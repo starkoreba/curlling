@@ -60,10 +60,7 @@ end
 end--> %>
 </div>
 <div class="row">
-<%= form_with url: activities_path, method: :get, class: "d-flex" do %>
-<%= submit_tag "I'm in", class: "btn gradient-btn g-btn-lg" %>
-<% end %>
 <%= simple_form_for [@activity, @new_participation] do |f| %>
-  <%= f.button :submit %>
+  <%= f.button :submit, "I'm in", class: "gradient-btn g-btn-lg" %>
 <% end %>
 </div>
