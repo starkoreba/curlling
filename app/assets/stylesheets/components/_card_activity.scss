@@ -43,7 +43,7 @@
   height: 70px;
   margin-bottom: 15px;
   display: flex;
-  align-items: top;
+  align-items: center;
 }
 
 .large-card-product img {
@@ -58,7 +58,7 @@
   font-weight: bold;
   margin: 0;
   margin-top: 10px;
-  width: 50%;
+  width: 60%;
 }
 
 .large-card-product h3 {
@@ -77,11 +77,12 @@
 }
 
 .header p {
-  width: 50%;
+  width: 40%;
+  text-align: right;
 }
 
 .large-card-product .large-card-product-infos {
-  padding: 0px 10px;
+  padding-left: 5px;
   width: 100%;
 }
 

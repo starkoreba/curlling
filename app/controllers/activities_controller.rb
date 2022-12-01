@@ -4,7 +4,8 @@ class ActivitiesController < ApplicationController
   before_action :set_category, only: %i[new create]
 
   def index
-    @activities = Activity.all
+    @categories = Category.all
+    @activities_cat = @categories.map { |category| category.activities }
     # array d'array
   end
 

@@ -1,12 +1,10 @@
-<div class="container">
-    <div class="large-card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="large-card-product-infos">
-        <div class="header">
-          <h2><%= activity.title %></h2>
-          <p class="date"><%= activity.start_date.strftime("%-d/%-m/%y: %H:%M") %>  <%= activity.start_date.strftime("%-d/%-m/%y: %H:%M") %></p>
-        </div>
-        <p><%= activity.address %></p>
-      </div>
+<div class="large-card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="large-card-product-infos">
+    <div class="header">
+      <h2><%= activity.title %></h2>
+      <p class="date"><%= activity.start_date.strftime("%-d/%-m/%y: %H:%M") %>  <%= activity.end_date.strftime("%-d/%-m/%y: %H:%M") %></p>
     </div>
+    <p><%= activity.address %></p>
+  </div>
 </div>
