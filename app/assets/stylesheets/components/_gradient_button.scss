@@ -7,7 +7,6 @@ $linear-g2: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%);
 $bg-position: right center;
 
 .gradient-btn {
-  width: $width-btn;
   border-radius: $border-radius-g-btn;
   box-shadow: $btn-g-box-shadow;
   transition: $transition;
@@ -17,4 +16,8 @@ $bg-position: right center;
   &:hover {
     background-position: $bg-position;
   }
+}
+
+.g-btn-lg {
+  width: $width-btn;
 }

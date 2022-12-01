@@ -9,4 +9,14 @@ class Activity < ApplicationRecord
   validates :title, :description, :address, :start_date, :end_date, presence: true
   validates :description, length: { minimum: 3 }
   validates :end_date, comparison: { greater_than: :start_date }
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+                  against: %i[title address],
+                  associated_against: {
+                    category: :name
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
