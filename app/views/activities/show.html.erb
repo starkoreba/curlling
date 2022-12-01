@@ -1,2 +1,12 @@
-<h1>Activities#show</h1>
-<p>Find me in app/views/activities/show.html.erb</p>
+<div class="row m-1 shadow">
+<% if @activity.picture.attached? %>
+  <%= cl_image_tag(@activity.picture.key, crop: :fill, class: "rounded-3 px-0") %>
+<% else %>
+  <img class="rounded-3 px-0" src="https://www.deezer-blog.com/assets/sites/2/Vaporwave-blog.png" />
+<% end %>
+</div>
+<div class="row mt-3">
+<h2><%= @activity.title %></h2>
+<p><%= @activity.start_date.strftime("%-d/%-m/%y à %H:%M") %></p>
+<p><%= @activity.description %></p>
+</div>
