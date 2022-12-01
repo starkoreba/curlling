@@ -2,6 +2,8 @@ class Activity < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_many :private_messages
+  has_many :participations
+  has_many :users, through: :participations
 
   has_many_attached :photos
 
