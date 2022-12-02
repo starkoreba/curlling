@@ -19,7 +19,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(params_activity)
     @activity.user = current_user
     if @activity.save
-
+      redirect_to @activity
     else
       render :new, status: :unprocessable_entity
     end
