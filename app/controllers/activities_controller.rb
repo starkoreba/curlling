@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_activity, only: %i[show edit destroy]
+  before_action :set_activity, only: %i[show edit update destroy]
 
   def index
     @categories = Category.all
@@ -26,11 +26,9 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
-    @activity = Activity.find(params[:id])
   end
 
   def update
-    @activity = Activity.find(params[:id])
     @activity.update(params_activity)
     redirect_to activity_path
   end
@@ -48,9 +46,5 @@ class ActivitiesController < ApplicationController
 
   def set_activity
     @activity = Activity.find(params[:id])
-  end
-
-  def set_category
-    @category = Category.find(params[:category_id])
   end
 end
