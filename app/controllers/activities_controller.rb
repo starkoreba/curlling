@@ -1,7 +1,6 @@
 class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_activity, only: %i[show edit destroy]
-  before_action :set_category, only: %i[new create]
+  before_action :set_activity, only: %i[show edit update destroy]
 
   def index
     # if params[:query].present?
@@ -17,17 +16,25 @@ class ActivitiesController < ApplicationController
     @new_participation = Participation.new
   end
 
+  def infos
+  end
+
   def new
     @activity = Activity.new
   end
 
   def create
-    @activity = Activity.new(activity_params)
+    @activity = Activity.new(params_activity)
     @activity.user = current_user
-    if @activity.save
-      redirect_to activities_path
+    if creator?
+      @activity.save
+      if @activity.save
+        redirect_to @activity
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
-      render :new, status: :unprocessable_entity
+      redirect_to infos_path
     end
   end
 
@@ -35,6 +42,8 @@ class ActivitiesController < ApplicationController
   end
 
   def update
+    @activity.update(params_activity)
+    redirect_to activity_path
   end
 
   def destroy
@@ -42,10 +51,6 @@ class ActivitiesController < ApplicationController
   end
 
   private
-
-  def activity_params
-  params.require(:activity).permit(:title, :description, :start_date, :end_date, :price, :address, :category_id)
-  end
 
   def params_activity
     params.require(:activity).permit(:title, :description, :address, :start_date, :end_date, :price, :category_id)
@@ -55,8 +60,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
   end
 
-  def set_category
-    @category = Category.find(params[:category_id])
+  def creator?
+    current_user.score > 100
   end
-
 end
