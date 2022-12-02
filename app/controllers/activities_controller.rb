@@ -16,6 +16,9 @@ class ActivitiesController < ApplicationController
     @new_participation = Participation.new
   end
 
+  def infos
+  end
+
   def new
     @activity = Activity.new
   end
@@ -23,10 +26,15 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(params_activity)
     @activity.user = current_user
-    if @activity.save
-      redirect_to @activity
+    if creator?
+      @activity.save
+      if @activity.save
+        redirect_to @activity
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
-      render :new, status: :unprocessable_entity
+      redirect_to infos_path
     end
   end
 
@@ -50,5 +58,9 @@ class ActivitiesController < ApplicationController
 
   def set_activity
     @activity = Activity.find(params[:id])
+  end
+
+  def creator?
+    current_user.score > 100
   end
 end
