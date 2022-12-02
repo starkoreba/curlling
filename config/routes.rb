@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :participations, only: :destroy
-  resources :chatroom, only: :show
+  get 'chatroom', to: "chatroom#show"
 
   resources :users, only: %i[show destroy]
   get 'infos', to: "activities#infos"
