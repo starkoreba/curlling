@@ -25,11 +25,11 @@ User.destroy_all
 
 
 puts "Creating badges..."
-badge1 = Badge.create!(name: "Fun", icon: 'fun_badge')
-badge2 = Badge.create!(name: "Champion(ne)", icon: 'champion_badge')
-badge3 = Badge.create!(name: "Fonceur(euse)", icon: 'dynamic_bage')
-badge4 = Badge.create!(name: "Couche-tard", icon: 'night_owl_badge')
-badge5 = Badge.create!(name: "Bon(ne) conducteur(trice)", icon: 'conductor_badge')
+badge1 = Badge.create!(name: "Fun", icon: 'badges/fun_badge')
+badge2 = Badge.create!(name: "Champion(ne)", icon: 'badges/champion_badge')
+badge3 = Badge.create!(name: "Fonceur(euse)", icon: 'badges/dynamic_bage')
+badge4 = Badge.create!(name: "Couche-tard", icon: 'badges/night_owl_badge')
+badge5 = Badge.create!(name: "Bon(ne) conducteur(trice)", icon: 'badges/conductor_badge')
 puts "Finished!"
 
 
