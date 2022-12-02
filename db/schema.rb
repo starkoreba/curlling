@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_171923) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_095051) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_171923) do
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
     t.integer "price"
-    t.integer "progress"
+    t.integer "progress", default: 0, null: false
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -87,6 +87,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_171923) do
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_participations_on_activity_id"
     t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
   create_table "private_messages", force: :cascade do |t|

@@ -7,7 +7,7 @@ class CreateActivities < ActiveRecord::Migration[7.0]
       t.datetime :start_date, null: false
       t.datetime :end_date, null: false
       t.integer :price
-      t.integer :progress
+      t.integer :progress, default: 0, null: false
       t.references :category, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 

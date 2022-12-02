@@ -1,21 +1,22 @@
-
 <div class="footer-navbar">
   <nav class="navbar fixed-bottom navbar-lewagon">
     <div class="container container-fluid py-3">
       <div class="text-center">
-        <a class="navbar-brand" href="#">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </a>
+        <%= link_to "", "/", class: "fa-solid fa-magnifying-glass" %>
       </div>
       <div class="text-center">
-        <a class="navbar-brand" href="#">
-          <i class="fa-solid fa-plus"></i>
-        </a>
+        <% if current_user == nil %>
+          <%= link_to "", new_user_session_path, class: "fa-solid fa-plus" %>
+        <% else %>
+        <%= link_to "", new_activity_path(current_user), class: "fa-solid fa-plus" %>
+        <% end %>
       </div>
       <div class="text-center">
-        <a class="navbar-brand" href="#">
-          <i class="fa-solid fa-user"></i>
-        </a>
+        <% if current_user == nil %>
+          <%= link_to "", new_user_session_path, class: "fa-solid fa-user" %>
+        <% else %>
+          <%= link_to "", user_path(current_user), class: "fa-solid fa-user" %>
+        <% end %>
       </div>
     </div>
   </nav>

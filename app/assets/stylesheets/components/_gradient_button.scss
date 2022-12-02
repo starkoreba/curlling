@@ -2,12 +2,11 @@ $width-btn: 100%;
 $border-radius-g-btn: 25px;
 $btn-g-box-shadow: 0 0 20px #eee;
 $transition: 0.5s;
-$linear-g1: linear-gradient(to right, #7474BF 0%, #348AC7 51%, #7474BF 100%);
+$linear-g1: linear-gradient(90deg, #A100FFFF 0%, #71C4FFFF 100%);;
 $linear-g2: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%);
 $bg-position: right center;
 
 .gradient-btn {
-  width: $width-btn;
   border-radius: $border-radius-g-btn;
   box-shadow: $btn-g-box-shadow;
   transition: $transition;
@@ -17,4 +16,8 @@ $bg-position: right center;
   &:hover {
     background-position: $bg-position;
   }
+}
+
+.g-btn-lg {
+  width: $width-btn;
 }
