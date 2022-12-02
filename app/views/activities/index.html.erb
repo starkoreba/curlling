@@ -22,14 +22,4 @@
   <% end %>
   <% end %>
 </div>
-
-<div class="row flex-column mt-5">
-    <% @activities_cat.each do |activities| %>
-    <% activities.each do |activity| %>
-      <div class="col">
-        <%= render "activities/activity_card", activity: activity %>
-      </div>
-    <% end %>
-    <% end %>
-</div>
 </div>
