@@ -3,9 +3,13 @@ Rails.application.routes.draw do
 
   root to: "activities#index"
   resources :activities, except: :index do
-    resources :participations, except: :destroy
+    resources :participations, except: :destroy do
+      resources :private_messages, only: :show
+    end
+
   end
   resources :participations, only: :destroy
 
-  resources :users, only: [:show, :destroy]
+  resources :users, only: %i[show destroy]
+  get 'infos', to: "activities#infos"
 end
