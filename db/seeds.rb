@@ -25,21 +25,21 @@ User.destroy_all
 
 
 puts "Creating badges..."
-badge1 = Badge.create!(name: "Fun", icon: 'badges/fun_badge')
-badge2 = Badge.create!(name: "Champion", icon: 'badges/champion_badge')
-badge3 = Badge.create!(name: "Fonceur", icon: 'badges/rocket_badge')
-badge4 = Badge.create!(name: "Couche-tard", icon: 'badges/nighty_badge')
-badge5 = Badge.create!(name: "Bon conducteur", icon: 'badges/conductor_badge')
-badge6 = Badge.create!(name: "Bon joueur", icon: 'badges/goodplayer_badge')
-badge7 = Badge.create!(name: "Bon danseur", icon: 'badges/dancer_badge')
-badge8 = Badge.create!(name: "Malin", icon: 'badges/smart_badge')
-badge9 = Badge.create!(name: "Enthousiaste", icon: 'badges/enthusiastic_badge')
-badge10 = Badge.create!(name: "Bon danseur", icon: 'badges/dancer_badge')
-badge11 = Badge.create!(name: "Cultivé", icon: 'badges/cultured_badge')
-badge12 = Badge.create!(name: "Céatif", icon: 'badges/creative_badge')
-badge13 = Badge.create!(name: "Bon danseur", icon: 'badges/dancer_badge')
-badge14 = Badge.create!(name: "Strategist", icon: 'badges/strategist_badge')
-badge15 = Badge.create!(name: "Adroit", icon: 'badges/dexterous_badge')
+badge1 = Badge.create!(name: "Fun", icon: 'badges/fun_badge.png')
+badge2 = Badge.create!(name: "Champion", icon: 'badges/champion_badge.png')
+badge3 = Badge.create!(name: "Fonceur", icon: 'badges/rocket_badge.png')
+badge4 = Badge.create!(name: "Couche-tard", icon: 'badges/nighty_badge.png')
+badge5 = Badge.create!(name: "Bon conducteur", icon: 'badges/conductor_badge.png')
+badge6 = Badge.create!(name: "Bon joueur", icon: 'badges/goodplayer_badge.png')
+badge7 = Badge.create!(name: "Bon danseur", icon: 'badges/dancer_badge.png')
+badge8 = Badge.create!(name: "Malin", icon: 'badges/smart_badge.png')
+badge9 = Badge.create!(name: "Enthousiaste", icon: 'badges/enthusiastic_badge.png')
+badge10 = Badge.create!(name: "Bon danseur", icon: 'badges/dancer_badge.png')
+badge11 = Badge.create!(name: "Cultivé", icon: 'badges/cultured_badge.png')
+badge12 = Badge.create!(name: "Céatif", icon: 'badges/creative_badge.png')
+badge13 = Badge.create!(name: "Bon danseur", icon: 'badges/dancer_badge.png')
+badge14 = Badge.create!(name: "Strategist", icon: 'badges/strategist_badge.png')
+badge15 = Badge.create!(name: "Adroit", icon: 'badges/dexterous_badge.png')
 
 puts "Finished!"
 
