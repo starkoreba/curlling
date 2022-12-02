@@ -5,10 +5,18 @@
         <%= link_to "", "/", class: "fa-solid fa-magnifying-glass" %>
       </div>
       <div class="text-center">
+        <% if current_user == nil %>
+          <%= link_to "", new_user_session_path, class: "fa-solid fa-plus" %>
+        <% else %>
         <%= link_to "", new_activity_path(current_user), class: "fa-solid fa-plus" %>
+        <% end %>
       </div>
       <div class="text-center">
-        <%= link_to "", user_path(current_user), class: "fa-solid fa-user" %>
+        <% if current_user == nil %>
+          <%= link_to "", new_user_session_path, class: "fa-solid fa-user" %>
+        <% else %>
+          <%= link_to "", user_path(current_user), class: "fa-solid fa-user" %>
+        <% end %>
       </div>
     </div>
   </nav>
