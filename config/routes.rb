@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :participations, only: :destroy
   resources :chatroom, only: :show
 
-  resources :users, only: [:show, :destroy]
+  resources :users, only: %i[show destroy]
+  get 'infos', to: "activities#infos"
 end
