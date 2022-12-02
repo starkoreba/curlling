@@ -1,7 +1,6 @@
 class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :set_activity, only: %i[show edit destroy]
-  before_action :set_category, only: %i[new create]
 
   def index
     @categories = Category.all
@@ -17,7 +16,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(activity_params)
+    @activity = Activity.new(params_activity)
     @activity.user = current_user
     if @activity.save
 
@@ -32,7 +31,7 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
-    @activity.update(activity_params)
+    @activity.update(params_activity)
     redirect_to activity_path
   end
 
@@ -42,12 +41,9 @@ class ActivitiesController < ApplicationController
 
   private
 
-  def activity_params
-    params.require(:activity).permit(:title, :description, :start_date, :end_date, :price, :address, :category_id)
-  end
 
   def params_activity
-    params.require(:activity).permit(:title, :description, :address, :start_date, :end_date, :price)
+    params.require(:activity).permit(:title, :description, :address, :start_date, :end_date, :price, :category_id)
   end
 
   def set_activity
