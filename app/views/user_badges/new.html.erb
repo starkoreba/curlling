@@ -1,3 +1,5 @@
+<%= 'hello from user-badges controller' %>
+
 <div class="row shadow">
   <% if @activity.picture.attached? %>
     <%= cl_image_tag(@activity.picture.key, crop: :fill, class: "rounded-3 px-0") %>

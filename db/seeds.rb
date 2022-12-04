@@ -249,8 +249,15 @@ puts "Finished!"
 
 
 puts "Creating participations..."
-participation1 = Participation.create!(user: user1, activity: activity1)
-participation2 = Participation.create!(user: user1, activity: activity3)
+# participation1 = Participation.create!(user: user1, activity: activity1)
+# participation2 = Participation.create!(user: user1, activity: activity3)
+# --- Participations pour l'activité d'Escalade créée par Jean et que Jeanne sélectionnera ---
+participation1 = Participation.create!(user: user4, activity: activity4)
+participation2 = Participation.create!(user: user5, activity: activity4)
+participation3 = Participation.create!(user: user7, activity: activity4)
+participation4 = Participation.create!(user: user8, activity: activity4)
+participation5 = Participation.create!(user: user15, activity: activity4)
+participation6 = Participation.create!(user: user13, activity: activity4)
 puts "Finished!"
 
 

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   # /activities/:id/user/:id/badge/:id/user_badge#create
 
-get 'activities/:id/participations/:id/user_badges/new', to: "user_bages#new"
+get 'activities/:id/participations/:id/user_badges/new', to: "user_badges#new"
 # POST 'activities/:id/user_badges'
 
 end
