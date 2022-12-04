@@ -10,7 +10,7 @@ class ParticipationsController < ApplicationController
   end
 
   def show
-    @participation = Participation.new
+    @participation = Participation.find([:id])
     @participation.activity = @activity
   end
 
