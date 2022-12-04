@@ -13,4 +13,11 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[show destroy]
   get 'infos', to: "activities#infos"
+
+
+  # /activities/:id/user/:id/badge/:id/user_badge#create
+
+get 'activities/:id/participations/:id/user_badges/new', to: "user_bages#new"
+# POST 'activities/:id/user_badges'
+
 end

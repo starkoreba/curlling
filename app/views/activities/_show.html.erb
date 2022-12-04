@@ -6,8 +6,13 @@
 <% end %>
 </div>
 <div>
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-<%= cl_image_tag(@activity.user.avatar.key, crop: :fill) %></div>
+  <% if @activity.user.avatar.attached? %>
+    <%# <img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt=""> %>
+    <%= cl_image_tag(@activity.user.avatar.key, crop: :fill) %>
+  <% else %>
+    <%= image_tag 'default_avatar.png', width:30px, border-radius:50% %>
+  <% end %>
+</div>
 <div class="row mt-3">
 <h2><%= @activity.title %></h2>
 <p class="mb-0"><%= @activity.start_date.strftime("%-d/%-m/%y à %H:%M") %></p>
