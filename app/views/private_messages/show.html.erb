@@ -1,15 +1,10 @@
-<div class="container chatroom">
+<div class="container chatroom" data-controller="chatroom-subscription"
+     data-chatroom-subscription-chatroom-id-value="<%= @private_message.id %>">
   <h1>#<%= @private_message.name %></h1>
 
-  <div class="messages">
+  <div class="messages" data-chatroom-subscription-target="messages">
     <% @private_message.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.nickname %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
+      <%= render "messages/message", message: message %>
     <% end %>
   </div>
 </div>
@@ -23,3 +18,7 @@
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
 <% end %>
+
+<%= simple_form_for [@private_message, @message],
+  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+%>

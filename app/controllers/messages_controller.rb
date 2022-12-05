@@ -5,7 +5,12 @@ class MessagesController < ApplicationController
     @message.private_message = @private_message
     @message.user = current_user
     if @message.save
-      redirect_to activity_participation_private_message_path(@private_message)
+      ChatroomChannel.broadcast_to(
+        @chatroom,
+        render_to_string(partial: "message", locals: {message: @message})
+      )
+      head :ok
+      # redirect_to activity_participation_private_message_path(@private_message)
     else
       render "activity_participation_private_message/show", status: :unprocessable_entity
     end
