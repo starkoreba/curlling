@@ -177,7 +177,7 @@ puts "Created #{activity2.title}"
 activity3 = Activity.create!(title: "Sortie vélo au départ de Bordeaux ", start_date: d25, end_date: d26, description: "Je propose une sortie vélo Bordeaux et alentours. Départ Parking Mac Donald", price: 0, address: '7 quai de Bacalan, 33000 Bordeaux', user: user10, category: category1)
 puts "Created #{activity3.title}"
 
-activity4 = Activity.create!(title: "Escalade Bloc", start_date: d27, end_date: d28, description: "Pour les grimpeurs débutant ou non, je propose une après-midi escalade à la salle Arkose", price: 0, address: '170 cours du Médoc, 33300 Bordeaux', user: user12, category: category1)
+activity4 = Activity.create!(title: "Escalade Bloc", start_date: d27, end_date: d28, description: "Pour les grimpeurs débutant ou non, je propose une après-midi escalade", price: 0, address: 'gymnase des dagueys, 33500 Libourne', user: user12, category: category1)
 puts "Created #{activity4.title}"
 
 activity5 = Activity.create!(title: "Footing", start_date: d29, end_date: d30, description: "Pour les grimpeurs débutant ou non, je propose une après-midi escalade à la salle Arkose. Pas de matériel requis, en dehors d'une tenue de sport classique. Possibilité de boire/manger sur place. ", price: 0, address: '170 cours du Médoc, 33300 Bordeaux', user: user1, category: category1)

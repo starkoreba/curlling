@@ -17,6 +17,11 @@ class Activity < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :assign_city
+
+  def assign_city
+    self.city = Geocoder.search(self.address)&.first&.data["address"]["city"]
+  end
 
   def create_private_message
     PrivateMessage.create(activity: self, user: self.user)
