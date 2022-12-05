@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   root to: "activities#index"
   resources :activities, except: :index do
     resources :participations, except: :destroy do
-      resources :private_messages, only: [:show, :create, :new]
+      resources :private_messages, only: %i[show create new] do
+        resources :messages, only: :create
+      end
     end
   end
 
   resources :participations, only: :destroy
-  get 'chatroom', to: "chatrooms#show"
 
   resources :users, only: %i[show destroy]
   get 'infos', to: "activities#infos"

@@ -15,6 +15,7 @@ class PrivateMessagesController < ApplicationController
   def show
     @private_message = Private_message.new
     @private_message.activity = @activity
+    @message = Message.new
   end
 
   private
