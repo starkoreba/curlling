@@ -16,9 +16,9 @@
  <%# ----- delete -------%>
 <div>
   <% if @activity.user == current_user && @activity.users.count = 1 %>
-   <%= link_to "Supprimer l'activité", root_path %>
+   <%= link_to "Supprimer l'activité", root_path, class: "text-decoration-none" %>
   <% else %>
-    <%= link_to "Supprimer l'activité", activities_path, class: "d-none" %>
+    <%= link_to "Supprimer l'activité", activities_path, class: "text-decoration-none" %>
   <% end %>
 </div>
  <%# ----- update -------%>
