@@ -1,7 +1,9 @@
 class Activity < ApplicationRecord
+  after_create :create_private_message
+
   belongs_to :category
   belongs_to :user
-  has_many :private_messages
+  has_one :private_message
   has_many :participations
   has_many :users, through: :participations
 
@@ -13,6 +15,9 @@ class Activity < ApplicationRecord
   validates :description, length: { minimum: 3 }
   validates :end_date, comparison: { greater_than: :start_date }
 
+  def create_private_message
+    PrivateMessage.create(activity: self, user: self.user)
+  end
   # include PgSearch::Model
   # pg_search_scope :global_search,
   #                 against: %i[title address],
