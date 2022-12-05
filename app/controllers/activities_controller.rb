@@ -9,6 +9,13 @@ class ActivitiesController < ApplicationController
     # end
     @categories = Category.all
     @activities = Activity.all
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {activity: activity})
+      }
+    end
     #@activities_cat = @categories.map { |category| category.activities }
 
     if params[:address]

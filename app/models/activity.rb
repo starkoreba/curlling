@@ -15,6 +15,9 @@ class Activity < ApplicationRecord
   validates :description, length: { minimum: 3 }
   validates :end_date, comparison: { greater_than: :start_date }
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   def create_private_message
     PrivateMessage.create(activity: self, user: self.user)
   end
@@ -35,14 +38,4 @@ class Activity < ApplicationRecord
       using: {
         tsearch: { prefix: true } # <-- now `superman batm` will return something!
       }
-
-  # pg_search_scope :global_search,
-  #                 against: %i[title address],
-  #                 associated_against: {
-  #                   category: [:name]
-  #                 },
-  #                 using: {
-  #                   tsearch: { prefix: true }
-  #                 }
-  # multisearchable against: %i[title address]
 end
