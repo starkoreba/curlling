@@ -18,7 +18,24 @@ class Activity < ApplicationRecord
   def create_private_message
     PrivateMessage.create(activity: self, user: self.user)
   end
-  # include PgSearch::Model
+
+  include PgSearch::Model
+  pg_search_scope :search_by_title_and_category,
+    against: [ :title ],
+    associated_against: {
+      category: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
+    include PgSearch::Model
+    pg_search_scope :search_by_address,
+      against: [ :address ],
+      using: {
+        tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      }
+
   # pg_search_scope :global_search,
   #                 against: %i[title address],
   #                 associated_against: {

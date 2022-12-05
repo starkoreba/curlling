@@ -8,7 +8,18 @@ class ActivitiesController < ApplicationController
     # else
     # end
     @categories = Category.all
-    @activities_cat = @categories.map { |category| category.activities }
+    @activities = Activity.all
+    #@activities_cat = @categories.map { |category| category.activities }
+
+    if params[:address]
+      #@activities = @activities.search_by_city("%#{params[:query]}%+%#{params[:address]}%")
+      #@activities_cat = @activities.group_by(&:category).values
+    end
+
+    if params[:query]
+      @activities = @activities.search_by_title_and_category("%#{params[:query]}%")
+    end
+    @activities_cat = @activities.group_by(&:category).values
     # array d'array
   end
 

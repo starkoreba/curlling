@@ -19,7 +19,7 @@
         <% if current_user %>
           <% if current_user.avatar.attached? %>
             <%= link_to user_path(current_user), class: "fa-solid fa-user" do %>
-              <%= cl_image_tag(current_user.avatar.key, class: "avatar" crop: :fill) %>
+              <%= cl_image_tag(current_user.avatar.key, class: "avatar", crop: :fill) %>
             <% end %>
             <% else %>
               <%= link_to user_path(current_user), class: "fa-solid fa-user" %>
