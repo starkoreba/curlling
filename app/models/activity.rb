@@ -4,6 +4,7 @@ class Activity < ApplicationRecord
   has_many :private_messages
   has_many :participations
   has_many :users, through: :participations
+  has_many :badges, through: :category_badges
 
   has_many_attached :photos
   has_one_attached :picture
