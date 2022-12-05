@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :participations, except: :destroy do
       resources :private_messages, only: [:show, :create, :new]
     end
+    resources :users, only:[] do
+      resources :user_badges, only: [:create]
+    end
   end
 
   resources :participations, only: :destroy
@@ -15,9 +18,7 @@ Rails.application.routes.draw do
   get 'infos', to: "activities#infos"
 
 
-  # /activities/:id/user/:id/badge/:id/user_badge#create
 
-get 'activities/:id/participations/:id/user_badges/new', to: "user_badges#new"
-# POST 'activities/:id/user_badges'
+
 
 end
