@@ -3,7 +3,9 @@ class Activity < ApplicationRecord
   belongs_to :user
   has_many :private_messages
   has_many :participations
-  has_many :users, through: :participations
+  has_many :users, -> { distinct }, through: :participations
+  has_many :category_badges, through: :category
+  has_many :badges, through: :category_badges
 
   has_many_attached :photos
   has_one_attached :picture

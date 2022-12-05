@@ -1,15 +1,20 @@
 class UserBadgesController < ApplicationController
 
-  def new
-    @user_badge = User_badge.new
+  def create
+    user = User.find(params[:user_id])
+    activity = Activity.find(params[:activity_id])
+    user_badge = UserBadge.new(user_badge_params)
+    user_badge.user = user
+    user_badge.activity = activity
+
+    if user_badge.save
+     user.user_badge_as_receiver = user_badge
+    end
   end
 
-  def create
-    # @activity = find()
-    # new_user_badge = User_badge.new
-    # @badge = Badge.find([:id])
-    # new_user_badge = current_user.user_badge_as_giver
-    # new_user_badge =
+private
 
+  def user_badge_params
+    params.require(:user_badge).permit(:badge)
   end
 end

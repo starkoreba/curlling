@@ -71,8 +71,8 @@ d23 = DateTime.new(2001, 3, 3)
 d24 = DateTime.new(1998, 3, 15)
 d25 = DateTime.new(2022, 12, 20, 14)
 d26 = DateTime.new(2022, 12, 20, 18)
-d27 = DateTime.new(2022, 12, 18, 14)
-d28 = DateTime.new(2022, 12, 18, 18)
+d27 = DateTime.new(2022, 11, 18, 14)
+d28 = DateTime.new(2022, 11, 18, 18)
 d29 = DateTime.new(2023, 1, 7, 9)
 d30 = DateTime.new(2023, 1, 7, 11)
 d31 = DateTime.new(2023, 1, 15, 14)
@@ -168,22 +168,22 @@ puts "Finished!"
 
 
 puts "Creating sport activities..."
-activity1 = Activity.create!(title: "Après-midi escalade", start_date: d3, end_date: d4, description: "Je propose une sortie escalade à la salle Arkose de Bordeaux. Rdv 15h. Tenue confortable à prévoir.", price: 11, address: '170 cours du Médoc, 33300 Bordeaux', user: user1, category: category1)
+activity1 = Activity.create!(title: "Après-midi escalade", start_date: d3, end_date: d4, description: "Je propose une sortie escalade à la salle Arkose de Bordeaux. Rdv 15h. Tenue confortable à prévoir.", price: 11, progress: 0, address: '170 cours du Médoc, 33300 Bordeaux', user: user1, category: category1)
 puts "Created #{activity1.title}"
 
-activity2 = Activity.create!(title: "Bordeaux à vélo", start_date: d7, end_date: d8, description: "Après-midi à vélo dans Bordeaux", price: 0, address: '12 Rue Saint-James, 33300 Bordeaux', user: user1, category: category1)
+activity2 = Activity.create!(title: "Bordeaux à vélo", start_date: d7, end_date: d8, description: "Après-midi à vélo dans Bordeaux", price: 0, progress: 0, address: '12 Rue Saint-James, 33300 Bordeaux', user: user1, category: category1)
 puts "Created #{activity2.title}"
 
-activity3 = Activity.create!(title: "Sortie vélo au départ de Bordeaux ", start_date: d25, end_date: d26, description: "Je propose une sortie vélo Bordeaux et alentours. Départ Parking Mac Donald", price: 0, address: '7 quai de Bacalan, 33000 Bordeaux', user: user10, category: category1)
+activity3 = Activity.create!(title: "Sortie vélo au départ de Bordeaux ", start_date: d25, end_date: d26, description: "Je propose une sortie vélo Bordeaux et alentours. Départ Parking Mac Donald", price: 0, progress: 0, address: '7 quai de Bacalan, 33000 Bordeaux', user: user10, category: category1)
 puts "Created #{activity3.title}"
 
-activity4 = Activity.create!(title: "Escalade Bloc", start_date: d27, end_date: d28, description: "Pour les grimpeurs débutant ou non, je propose une après-midi escalade à la salle Arkose", price: 0, address: '170 cours du Médoc, 33300 Bordeaux', user: user12, category: category1)
+activity4 = Activity.create!(title: "Escalade Bloc", start_date: d27, end_date: d28, description: "Pour les grimpeurs débutant ou non, je propose une après-midi escalade à la salle Arkose", price: 0, progress: 0, address: '170 cours du Médoc, 33300 Bordeaux', user: user12, category: category1)
 puts "Created #{activity4.title}"
 
-activity5 = Activity.create!(title: "Footing", start_date: d29, end_date: d30, description: "Pour les grimpeurs débutant ou non, je propose une après-midi escalade à la salle Arkose. Pas de matériel requis, en dehors d'une tenue de sport classique. Possibilité de boire/manger sur place. ", price: 0, address: '170 cours du Médoc, 33300 Bordeaux', user: user1, category: category1)
+activity5 = Activity.create!(title: "Footing", start_date: d29, end_date: d30, description: "Pour les grimpeurs débutant ou non, je propose une après-midi escalade à la salle Arkose. Pas de matériel requis, en dehors d'une tenue de sport classique. Possibilité de boire/manger sur place. ", price: 0, progress: 0, address: '170 cours du Médoc, 33300 Bordeaux', user: user1, category: category1)
 puts "Created #{activity5.title}"
 
-activity6 = Activity.create!(title: "Randonnée", start_date: d31, end_date: d32, description: "Je propose une randonnée pédestres dans les parcs du centre de Gradignan. Durée estimée 2h10 - 7,2 kms - niveau facile. Rdv sortie du parc de l'Hermitage par la rue Lestage", price: 0, address: 'avenue Lestage, 33170 Bordeaux', user: user5, category: category1)
+activity6 = Activity.create!(title: "Randonnée", start_date: d31, end_date: d32, description: "Je propose une randonnée pédestres dans les parcs du centre de Gradignan. Durée estimée 2h10 - 7,2 kms - niveau facile. Rdv sortie du parc de l'Hermitage par la rue Lestage", price: 0, progress: 0, address: 'avenue Lestage, 33170 Bordeaux', user: user5, category: category1)
 puts "Created #{activity6.title}"
 puts "Finished!"
 
@@ -193,22 +193,22 @@ puts "Finished!"
 # activity10
 
 puts "Creating culture activities..."
-activity11 = Activity.create!(title: "Musée des Beaux Arts ", start_date: d33, end_date: d34, description: "Je propose une sortie au musée des Beaux-Arts de Bordeaux. ", price: 10, address: "20 cours d'Albret, 33300 Bordeaux", user: user7, category: category2)
+activity11 = Activity.create!(title: "Musée des Beaux Arts ", start_date: d33, end_date: d34, description: "Je propose une sortie au musée des Beaux-Arts de Bordeaux. ", price: 10, progress: 0, address: "20 cours d'Albret, 33300 Bordeaux", user: user7, category: category2)
 puts "Created #{activity11.title}"
 
-activity12 = Activity.create!(title: "Sortie au muséum de Bordeaux Sciences et nature ", start_date: d35, end_date: d36, description: "Pour les amateurs de sciences et nature, je propose une sortie au muséum de Bordeaux. ", price: 12, address: "5 place Bardineau, 33300 Bordeaux", user: user6, category: category2)
+activity12 = Activity.create!(title: "Sortie au muséum de Bordeaux Sciences et nature ", start_date: d35, end_date: d36, description: "Pour les amateurs de sciences et nature, je propose une sortie au muséum de Bordeaux. ", price: 12, progress: 0, address: "5 place Bardineau, 33300 Bordeaux", user: user6, category: category2)
 puts "Created #{activity12.title}"
 
-activity13 = Activity.create!(title: "Ciné : 'Le Lycéen'", start_date: d37, end_date: d38, description: "Je propose une sortie ciné pour aller voir le film Le Lycéeen à l'UGC de Bordeaux", price: 8, address: "13 rue Georges Bonnac, 33300 Bordeaux", user: user9, category: category2)
+activity13 = Activity.create!(title: "Ciné : 'Le Lycéen'", start_date: d37, end_date: d38, description: "Je propose une sortie ciné pour aller voir le film Le Lycéeen à l'UGC de Bordeaux", price: 8, progress: 0, address: "13 rue Georges Bonnac, 33300 Bordeaux", user: user9, category: category2)
 puts "Created #{activity13.title}"
 
-activity14 = Activity.create!(title: "'Expo Planet or Plastic'", start_date: d39, end_date: d40, description: " L'exposition 'Planet or Plastic' me parait très intéressante. Avis aux amateurs. Musée Mer Marine à Bordeaux", price: 11, address: "89 rue des étrangers, 33300 Bordeaux", user: user8, category: category2)
+activity14 = Activity.create!(title: "'Expo Planet or Plastic'", start_date: d39, end_date: d40, description: " L'exposition 'Planet or Plastic' me parait très intéressante. Avis aux amateurs. Musée Mer Marine à Bordeaux", price: 11, progress: 0, address: "89 rue des étrangers, 33300 Bordeaux", user: user8, category: category2)
 puts "Created #{activity14.title}"
 
-activity15 = Activity.create!(title: "Sortie cinéma pour le film 'Le Torrent' ", start_date: d41, end_date: d42, description: " Soirée ciné à l'UGC du Bassin des Flots", price: 8, address: "13 rue Georges Bonnac, 33300 Bordeaux", user: user15, category: category2)
+activity15 = Activity.create!(title: "Sortie cinéma pour le film 'Le Torrent' ", start_date: d41, end_date: d42, description: " Soirée ciné à l'UGC du Bassin des Flots", price: 8, progress: 0, address: "13 rue Georges Bonnac, 33300 Bordeaux", user: user15, category: category2)
 puts "Created #{activity15.title}"
 
-activity16 = Activity.create!(title: "Spectacle Acazar comedy live show", start_date: d43, end_date: d44, description: "Je propose une soirée spectacle comédie.", price: 9, address: "170 cours du Médoc, 33000 Bordeaux", user: user12, category: category2)
+activity16 = Activity.create!(title: "Spectacle Acazar comedy live show", start_date: d43, end_date: d44, description: "Je propose une soirée spectacle comédie.", price: 9, progress: 0, address: "170 cours du Médoc, 33000 Bordeaux", user: user12, category: category2)
 puts "Created #{activity16.title}"
 
 # activity17
@@ -219,22 +219,22 @@ puts "Created #{activity16.title}"
 
 puts "Creating games activities..."
 
-activity21 = Activity.create!(title: "Soirée jeux de société aux Jeux Barjo", start_date: d5, end_date: d6, description: "Pour les plus joueurs d'entre vous, soirée jeux aux Jeux Barjo.", price: 10, address: '12 Rue Saint-James, 33300 Bordeaux', user: user1, category: category3)
+activity21 = Activity.create!(title: "Soirée jeux de société aux Jeux Barjo", start_date: d5, end_date: d6, description: "Pour les plus joueurs d'entre vous, soirée jeux aux Jeux Barjo.", price: 10, progress: 0, address: '12 Rue Saint-James, 33300 Bordeaux', user: user1, category: category3)
 puts "Created #{activity21.title}"
 
-activity22 = Activity.create!(title: "Soirée jeux", start_date: d45, end_date: d46, description: "Je propose une soirée jeux à la veille de Noel aux Jeux Barjo.", price: 10, address: '12 Rue Saint-James, 33300 Bordeaux', user: user1, category: category3)
+activity22 = Activity.create!(title: "Soirée jeux", start_date: d45, end_date: d46, description: "Je propose une soirée jeux à la veille de Noel aux Jeux Barjo.", price: 10, progress: 0, address: '12 Rue Saint-James, 33300 Bordeaux', user: user1, category: category3)
 puts "Created #{activity22.title}"
 
-activity23 = Activity.create!(title: "Tournoi d'echecs", start_date: d47, end_date: d48, description: "J'adore les échecs. J'organise un tournoi chez moi ", price: 0, address: '161 rue Lucien Faure, 33300 Bordeaux', user: user1, category: category3)
+activity23 = Activity.create!(title: "Tournoi d'echecs", start_date: d47, end_date: d48, description: "J'adore les échecs. J'organise un tournoi chez moi ", price: 0, progress: 0, address: '161 rue Lucien Faure, 33300 Bordeaux', user: user1, category: category3)
 puts "Created #{activity23.title}"
 
 
 puts "Creating indoor activities..."
 
-activity24 = Activity.create!(title: "Bowling", start_date: d49, end_date: d50, description: "Après-midi bowling au KART System Indoor" , price: 8, address: 'rue du Grand Barail, 33300 Bordeaux', user: user3, category: category5)
+activity24 = Activity.create!(title: "Bowling", start_date: d49, end_date: d50, description: "Après-midi bowling au KART System Indoor" , price: 8, progress: 0, address: 'rue du Grand Barail, 33300 Bordeaux', user: user3, category: category5)
 puts "Created #{activity24.title}"
 
-activity25 = Activity.create!(title: "Escape-game", start_date: d51, end_date: d52, description: "Escape-game Clock Escape" , price: 10, address: "36 rue du Pont de la Mousque, 33000 Bordeaux", user: user3, category: category5)
+activity25 = Activity.create!(title: "Escape-game", start_date: d51, end_date: d52, description: "Escape-game Clock Escape" , price: 10, progress: 0, address: "36 rue du Pont de la Mousque, 33000 Bordeaux", user: user3, category: category5)
 puts "Created #{activity25.title}"
 
 

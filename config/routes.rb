@@ -18,7 +18,4 @@ Rails.application.routes.draw do
   get 'infos', to: "activities#infos"
 
 
-
-
-
 end
