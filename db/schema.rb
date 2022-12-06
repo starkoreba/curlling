@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_164314) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_102002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,6 +83,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_164314) do
     t.index ["category_id"], name: "index_category_badges_on_category_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "private_message_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["private_message_id"], name: "index_messages_on_private_message_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "participations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "activity_id", null: false
@@ -106,6 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_164314) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["activity_id"], name: "index_private_messages_on_activity_id"
     t.index ["user_id"], name: "index_private_messages_on_user_id"
   end
@@ -147,6 +158,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_164314) do
   add_foreign_key "activities", "users"
   add_foreign_key "category_badges", "badges"
   add_foreign_key "category_badges", "categories"
+  add_foreign_key "messages", "private_messages"
+  add_foreign_key "messages", "users"
   add_foreign_key "participations", "activities"
   add_foreign_key "participations", "users"
   add_foreign_key "private_messages", "activities"

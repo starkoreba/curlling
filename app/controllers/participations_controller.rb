@@ -5,8 +5,10 @@ class ParticipationsController < ApplicationController
     @participation = Participation.new
     @participation.user = current_user
     @participation.activity = @activity
-    @participation.save
-    redirect_to activity_participation_path(@activity, @participation)
+    if @participation.save
+      @private_message = PrivateMessage.create(activity: @activity, user: current_user)
+      redirect_to activity_participation_path(@activity, @participation)
+    end
   end
 
   def show
