@@ -5,7 +5,7 @@
   <div class="row mt-5">
      <% if @activity.user != current_user %>
       <%= simple_form_for [@activity, @new_participation] do |f| %>
-        <%= f.button :submit, "I'm in", class: "gradient-btn g-btn-lg" %>
+        <%= f.button :submit, "Je participe", class: "btn gradient-btn g-btn-lg" %>
       <% end %>
     <% end %>
   </div>
