@@ -6,8 +6,15 @@
   <% end %>
 </div>
 <div>
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-<%= cl_image_tag(@activity.user.avatar.key, crop: :fill) %></div>
+  <% if @activity.user.avatar.attached? %>
+    <%# <img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt=""> %>
+    <%= cl_image_tag(@activity.user.avatar.key, class: "avatar-large", crop: :fill) %>
+  <% else %>
+    <%= image_tag 'default_avatar.png', class: "avatar" %>
+  <% end %>
+</div>
+
+ <%# ----- text zone -------%>
 <div class="row mt-3">
 <h2><%= @activity.title %></h2>
 <p class="mb-0"><%= @activity.start_date.strftime("%-d/%-m/%y à %H:%M") %></p>
@@ -20,42 +27,15 @@
 <% end %></span>
 <p class="mb-0 text-muted text-justify"><%= @activity.description %></p>
 </div>
-<div class="row flex-nowrap overflow-auto my-5" style="margin-left:0.25rem;">
-<div class="col p-0">
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-</div>
-<div class="col p-0">
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-</div>
-<div class="col p-0">
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-</div>
-<div class="col p-0">
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-</div>
-<div class="col p-0">
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-</div>
-<div class="col p-0">
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-</div>
-<div class="col p-0">
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-</div>
-<div class="col p-0">
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-</div>
-<div class="col p-0">
-<img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
-</div>
-
-<%# <!--each participations.users |participant|
-<div class="col">
-if avatar.attached?
-cl_image_tag(participant.avatar.key, crop: :fill)
-else
-placeholder
-end
-</div>
-end--> %>
+ <%# ----- participants avatar -------%>
+<div class = "participants-container d-flex align-items-center  mt-3">
+    <%  @activity.users.each do |user| %>
+      <div class="row">
+        <% if user!=current_user && user.avatar.attached? %>
+          <%= cl_image_tag(user.avatar.key, class: "avatar-large", crop: :fill) %>
+        <% else %>
+          <%= image_tag 'default_avatar.png', class: "avatar-large", crop: :fill %>
+        <% end %>
+      </div>
+    <% end %>
 </div>
