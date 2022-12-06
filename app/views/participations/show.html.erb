@@ -15,8 +15,8 @@
   </div>
   <div class="row mt-3">
     <h2><%= @activity.title %></h2>
-    <p class="mb-0"><%= @activity.start_date.strftime("%-d/%-m/%y à %H:%M") %></p>
-    <p class="mb-0"><%= @activity.address %></p>
+      <p class="mb-0"><%= @activity.start_date.strftime("%-d/%-m/%y à %H:%M") %></p>
+      <p class="mb-0"><%= @activity.address %></p>
     <span>
       <% if @activity.price > 0 %>
         <%= @activity.price %>€
@@ -27,7 +27,9 @@
     <p class="mb-3 text-muted text-justify"><%= @activity.description %></p>
   </div>
 
+
   <!-- =======================
+
   <%# si l'activité a un statut 'en cours' (progress = 0) : afficher le boutton chat  %>
   <div class="container">
     <%# <%= render "activities/show", activity: @activity %> %>
@@ -39,32 +41,39 @@
 
   <!-- =======================
     List START -->
-  <div id="badge-assignation">
-    <% @activity.users.excluding(current_user).each do |user| %>
-      <ul>
-        <%# <li class="row list-group-item" data-controller="add-badge"> %>
-      <li class="row align-items-center">
-          <div class= "col-2">
-            <% if user.avatar.attached? %>
-              <%= cl_image_tag(user.avatar.key, class: "avatar-large", crop: :fill) %>
-            <% else %>
-              <%= image_tag "default_avatar.png", class: "avatar-large", alt: "" %>
-            <% end %>
-          </div>
-          <div class = "row col-8 d-flex">
-            <%= simple_form_for [@activity, user, UserBadge.new], html:{id:"new-user-badge#{user.id}", data: {controller:"add-badge"}}, namespace: "user_#{user.id}" do |f| %>
-              <%= f.input :badge,
-                collection: @activity.badges.map {  |badge|   [raw("<div>#{badge.name}</div>#{image_tag badge.icon, class: 'badge-large'}"), badge.id]},
-                as: :radio_buttons,
-                label:" ",
-                required: false,
 
-                input_html: {data: {action: "change->add-badge#add", add_badge_target: "badge"}, class: "sr-only"}%>
-              <%#= f.submit "coucou" %>
-            <% end %>
-          </div>
-        </li>
-      </ul>
+
+    <% if Date.today > @activity.end_date  %>
+        <% <div class="row"> %>
+        <%= link_to "Chat", chatroom_path, class: "btn gradient-btn g-btn-lg" %>
+    <% else %>
+      <div id="badge-assignation">
+        <% @activity.users.excluding(current_user).each do |user| %>
+          <ul>
+            <%# <li class="row list-group-item" data-controller="add-badge"> %>
+          <li class="row align-items-center">
+              <div class= "col-2">
+                <% if user.avatar.attached? %>
+                  <%= cl_image_tag(user.avatar.key, class: "avatar-large", crop: :fill) %>
+                <% else %>
+                  <%= image_tag "default_avatar.png", class: "avatar-large", alt: "" %>
+                <% end %>
+              </div>
+              <div class = "row col-8 d-flex">
+                <%= simple_form_for [@activity, user, UserBadge.new], html:{id:"new-user-badge#{user.id}", data: {controller:"add-badge"}}, namespace: "user_#{user.id}" do |f| %>
+                  <%= f.input :badge,
+                    collection: @activity.badges.map {  |badge|   [raw("<div>#{badge.name}</div>#{image_tag badge.icon, class: 'badge-large'}"), badge.id]},
+                    as: :radio_buttons,
+                    label:" ",
+                    required: false,
+
+                    input_html: {data: {action: "change->add-badge#add", add_badge_target: "badge"}, class: "sr-only"}%>
+                  <%#= f.submit "coucou" %>
+                <% end %>
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      </div>
     <% end %>
-  </div>
 </div>
