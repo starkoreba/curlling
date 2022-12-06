@@ -1,8 +1,17 @@
-<%= form_with url: activities_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Trouver une activité"
-  %>
-  <%= submit_tag "Search", class: "btn gradient-btn" %>
+<%= form_with url: root_path, method: :get, html: { class: 'mb-4', data: { search_activities_target: 'form' } } do |f| %>
+  <%= f.text_field :query,
+                   class: "form-control",
+                   placeholder: 'Recherche par activité',
+                   value: params[:query],
+                   data: { search_activities_target: 'input',
+                           action: 'keyup->search-activities#update' } %>
+<%# end %>
+<%#= form_with url: root_path, method: :get, html: { class: 'mb-4', data: { search_address_target: 'form' } } do |f| %>
+  <%= f.text_field :address,
+                   class: "form-control my-3",
+                   placeholder: 'Recherche par ville',
+                   value: params[:address],
+                   data: { search_address_target: 'input',
+                           action: 'keyup->search-activities#update' } %>
+  <%= f.submit "Rechercher", class: "gradient-btn g-btn-lg" %>
 <% end %>

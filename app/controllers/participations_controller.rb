@@ -10,8 +10,8 @@ class ParticipationsController < ApplicationController
   end
 
   def show
-    @participation = Participation.find([:id])
-    @participation.activity = @activity
+    @participation = Participation.find(params[:id])
+    @private_message = @activity.private_message
   end
 
   private
