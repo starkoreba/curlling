@@ -29,9 +29,9 @@
 </div>
  <%# ----- participants avatar -------%>
 <div class = "participants-container d-flex align-items-center  mt-3">
-    <%  @activity.users.each do |user| %>
+    <%  @activity.users.excluding(@activity.user).each do |user| %>
       <div class="row">
-        <% if user!=current_user && user.avatar.attached? %>
+        <% if user.avatar.attached? %>
           <%= cl_image_tag(user.avatar.key, class: "avatar-large", crop: :fill) %>
         <% else %>
           <%= image_tag 'default_avatar.png', class: "avatar-large", crop: :fill %>
