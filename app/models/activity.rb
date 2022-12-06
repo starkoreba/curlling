@@ -20,7 +20,8 @@ class Activity < ApplicationRecord
   after_validation :assign_city
 
   def assign_city
-    self.city = Geocoder.search(self.address)&.first&.data["address"]["city"]
+    address = Geocoder.search(self.address)&.first&.data["address"]
+    self.city = address["city"] || address["town"]
   end
 
   def create_private_message
@@ -29,18 +30,18 @@ class Activity < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_category,
-    against: [ :title ],
-    associated_against: {
-      category: [ :name ]
-    },
-    using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
-    }
+                  against: [ :title ],
+                  associated_against: {
+                    category: [ :name ]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
-    include PgSearch::Model
-    pg_search_scope :search_by_address,
-      against: [ :address ],
-      using: {
-        tsearch: { prefix: true } # <-- now `superman batm` will return something!
-      }
+  include PgSearch::Model
+  pg_search_scope :search_by_address,
+                  against: [ :address ],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

@@ -5,12 +5,13 @@
                    value: params[:query],
                    data: { search_activities_target: 'input',
                            action: 'keyup->search-activities#update' } %>
-<% end %>
-<%= form_with url: root_path, method: :get, html: { class: 'mb-4', data: { search_address_target: 'form' } } do |f| %>
+<%# end %>
+<%#= form_with url: root_path, method: :get, html: { class: 'mb-4', data: { search_address_target: 'form' } } do |f| %>
   <%= f.text_field :address,
-                   class: "form-control",
+                   class: "form-control my-3",
                    placeholder: 'Recherche par ville',
                    value: params[:address],
                    data: { search_address_target: 'input',
                            action: 'keyup->search-activities#update' } %>
+  <%= f.submit "Rechercher", class: "gradient-btn g-btn-lg" %>
 <% end %>
