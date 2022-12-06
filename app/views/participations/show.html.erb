@@ -40,8 +40,8 @@
   List START -->
 <% @activity.users.each do |user| %>
   <ul class="badges-user-container d-flex">
-    <li class="row list-group-item">
-      <div class="me-3">
+    <%# <li class="row list-group-item" data-controller="add-badge"> %>
+   <li class="row list-group-item">
         <% if user.avatar.attached? %>
           <%= cl_image_tag(user.avatar.key, class: "avatar-large", crop: :fill) %>
         <% else %>
@@ -49,20 +49,22 @@
         <% end %>
       </div>
       <div class = "d-flex justify-content-between">
-          <% @activity.badges.each do |badge| %>
-            <li class= "list-group-item me-3"><%=  image_tag badge.icon, class: "avatar-large" %></li>
-          <% end %>
+        <%= simple_form_for [@activity, user, UserBadge.new], html:{id:"new-user-badge#{user.id}", data: {controller:"add-badge"}}, namespace: "user_#{user.id}" do |f| %>
+          <%= f.input :badge,
+            collection: @activity.badges.map {  |badge|   [raw("<div>#{badge.name}</div>#{image_tag badge.icon, class: 'badge-large'}"), badge.id] },
+            as: :radio_buttons,
+            input_html: {data: {action: "change->add-badge#add", add_badges_target: "badge"} }%>
+          <%#= f.submit "coucou" %>
+        <% end %>
       </div>
     </li>
   </ul>
 <% end %>
 
 
-        <%#= simple_form_for [@activity, user, UserBadge.new], html:{id:"new-user-badge#{user.id}"} do |f| %>
-          <%#= f.input :badge,
-            collection: @activity.badges.map {  |badge|   [raw("<div>#{badge.name}</div>#{image_tag badge.icon, class: 'badge-large'}"), badge.id] },
-            as: :radio_buttons,
-            input_html: {id: "user_badge_#{user.id}_#{rand(1000)}"}%>
 
-          <%#= f.submit "coucou" %>
-        <%# end %>
+          <%# @activity.badges.each do |badge| %>
+          <%# <li class= "list-group-item me-3" data-action="click->add-badge#add" data-add-badge-target="badge" data-controller="disable-badges" data-action="click->disable-badges#disable" data-disable-badges-target="badge"> %>
+            <%#= image_tag badge.icon, class: "avatar-large" %>
+          <%# </li>  %>
+          <%# end %>

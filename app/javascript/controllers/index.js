@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import AddBadgeController from "./add_badge_controller"
+application.register("add-badge", AddBadgeController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
