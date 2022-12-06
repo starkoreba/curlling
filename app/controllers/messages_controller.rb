@@ -5,8 +5,8 @@ class MessagesController < ApplicationController
     @message.private_message = @private_message
     @message.user = current_user
     if @message.save
-      ChatroomChannel.broadcast_to(
-        @chatroom,
+      PrivateMessageChannel.broadcast_to(
+        @private_message,
         render_to_string(partial: "message", locals: {message: @message})
       )
       head :ok

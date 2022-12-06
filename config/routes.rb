@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: "activities#index"
   resources :activities, except: :index do
     resources :participations, except: :destroy
-    resources :private_messages, only: :show
+    resources :private_messages, only: :show do
+      resources :messages, only: %i[show create]
+    end
   end
 
   resources :participations, only: :destroy
