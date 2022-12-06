@@ -1,9 +1,9 @@
 <div class="row shadow">
-<% if @activity.picture.attached? %>
-  <%= cl_image_tag(@activity.picture.key, crop: :fill, class: "rounded-3 px-0") %>
-<% else %>
-  <img class="rounded-3 px-0" src="https://www.sportdiet.fr/wp-content/uploads/2019/09/male-climber-on-overhanging-rock-against-PRHCNG5.jpg" />
-<% end %>
+  <% if @activity.picture.attached? %>
+    <%= cl_image_tag(@activity.picture.key, crop: :fill, class: "rounded-3 px-0") %>
+  <% else %>
+    <img class="rounded-3 px-0" src="https://www.sportdiet.fr/wp-content/uploads/2019/09/male-climber-on-overhanging-rock-against-PRHCNG5.jpg" />
+  <% end %>
 </div>
 <div>
 <img style="border-radius:50%; width:30px;" src="http://ergo-logo-gruenberg.de/wp-content/uploads/2014/10/Avatar-placeholder3-945x945.png" alt="">
