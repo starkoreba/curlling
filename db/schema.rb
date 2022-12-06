@@ -109,7 +109,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_102002) do
   end
 
   create_table "private_messages", force: :cascade do |t|
-    t.text "content", null: false
     t.bigint "activity_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
