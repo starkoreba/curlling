@@ -21,13 +21,13 @@
 <p class="mb-0"><%= @activity.address %></p>
 <span>
 <% if activity.price > 0 %>
-  <%= activity.price %>€
+  <%= activity.price %>€ /pers
 <% else %>
   Gratuit
 <% end %></span>
 <p class="mb-0 text-muted text-justify"><%= @activity.description %></p>
 </div>
- <%# ----- participants avatar -------%>
+<%# ----- participants avatar -------%>
 <div class = "participants-container d-flex align-items-center  mt-3">
     <%  @activity.users.each do |user| %>
       <div class="row">
