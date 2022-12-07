@@ -2,10 +2,11 @@
   <%= render "activities/show", activity: @activity %>
   <br>
   <br>
-  <div class="row mt-5">
+  <div class="row mt-5" data-controller="sweet-alert">
      <% if @activity.user != current_user %>
-      <%= simple_form_for [@activity, @new_participation] do |f| %>
-        <%= f.button :submit, "Je participe", class: "btn gradient-btn g-btn-lg" %>
+     <button data-action="click->sweet-alert#participate" class="btn gradient-btn g-btn-lg">Je participe</button>
+      <%= simple_form_for [@activity, @new_participation], data: { sweet_alert_target: "form"} do |f| %>
+        <%= f.button :submit, hidden: true %>
       <% end %>
     <% end %>
   </div>
