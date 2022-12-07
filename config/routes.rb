@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :activities, except: :index do
     resources :participations, except: :destroy
     resources :private_messages, only: :show do
-      resources :messages, only: %i[show create]
+      ressources :messages, only: %i[show create]
     end
   end
 

@@ -3,8 +3,8 @@ class Activity < ApplicationRecord
 
   belongs_to :category
   belongs_to :user
-  has_one :private_message
-  has_many :participations
+  has_one :private_message, dependent: :destroy
+  has_many :participations, dependent: :destroy
   has_many :users, through: :participations
   has_many :badges, through: :category_badges
 

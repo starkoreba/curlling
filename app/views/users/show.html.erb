@@ -28,7 +28,7 @@
     <% current_user.user_badges_as_receiver.map(&:badge).each do |badge| %>
       <div class="col align-self-start">
         <%= image_tag badge.icon, class: "badge-large" %>
-        <h3><%= badge.name %> x <%= current_user.user_badges_as_receiver.map(&:badge).count %></h3>
+        <h3><%= badge.name %> x <%= @num_badges[badge.id] %></h3>
       </div>
     <% end %>
   </div>

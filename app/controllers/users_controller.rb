@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
+    @num_badges = UserBadge.where(receiver_id: current_user.id).group(:badge_id).count
   end
 
   def edit

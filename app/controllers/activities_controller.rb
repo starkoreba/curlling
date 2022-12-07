@@ -43,6 +43,7 @@ class ActivitiesController < ApplicationController
     if creator?
       @activity.save
       if @activity.save
+        @participation = Participation.create(activity: @activity, user: current_user)
         redirect_to @activity
       else
         render :new, status: :unprocessable_entity
@@ -62,6 +63,7 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity.destroy
+    redirect_to user_path, status: :see_other
   end
 
   private
