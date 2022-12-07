@@ -7,10 +7,17 @@ Rails.application.routes.draw do
     resources :private_messages, only: :show do
       resources :messages, only: %i[show create]
     end
+    resources :users, only:[] do
+      resources :user_badges, only: :create
+    end
   end
 
+  namespace :search do
+    resources :activities, only: :index
+  end
   resources :participations, only: :destroy
 
   resources :users, only: %i[show destroy]
   get 'infos', to: "activities#infos"
+
 end
