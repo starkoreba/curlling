@@ -1,0 +1,12 @@
+<h2 class="mt-5">Participants</h2>
+<div class = "participants-container d-flex align-items-center  mt-3">
+    <%  @activity.users.excluding(@activity.user).each do |user| %>
+      <div class="row">
+        <% if user.avatar.attached? %>
+          <%= cl_image_tag(user.avatar.key, class: "avatar-large", crop: :fill) %>
+        <% else %>
+          <%= image_tag 'default_avatar.png', class: "avatar-large", crop: :fill %>
+        <% end %>
+      </div>
+    <% end %>
+</div>

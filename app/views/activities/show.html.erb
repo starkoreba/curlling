@@ -1,24 +1,29 @@
 <div class="container">
   <%= render "activities/show", activity: @activity %>
+  <%= render "activities/participants", activity: @activity %>
   <br>
   <br>
-  <div class="row mt-5" data-controller="sweet-alert">
-     <% if @activity.user != current_user %>
-     <button data-action="click->sweet-alert#participate" class="btn gradient-btn g-btn-lg">Je participe</button>
-      <%= simple_form_for [@activity, @new_participation], data: { sweet_alert_target: "form"} do |f| %>
-        <%= f.button :submit, hidden: true %>
+  <% if Date.today < @activity.end_date  %>
+    <div class="row mt-5" data-controller="sweet-alert">
+      <% if @activity.user != current_user %>
+        <button data-action="click->sweet-alert#participate" class="btn gradient-btn g-btn-lg">Je participe</button>
+        <%= simple_form_for [@activity, @new_participation], data: { sweet_alert_target: "form" } do |f| %>
+          <%= f.button :submit, hidden: true %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <%= render "user_badges/show", activity: @activity %>
+  <% end %>
+
 </div>
- <%# ----- delete -------%>
+<%# ----- delete -------%>
 <div class="links-container d-flex justify-content-between">
   <div class ="row ms-2">
     <% if @activity.user == current_user && @activity.participations.count == 1 %>
       <%= link_to activity_path(@activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
         <i class="fa fa-trash card-category--trash" aria-hidden="true"></i>
       <% end %>
-      <%= link_to "Supprimer l'activité", root_path, class: "text-decoration-none" %>
     <% end %>
   </div>
   <%# ----_- update -------%>
