@@ -14,6 +14,7 @@
           <%= f.input :badge,
             collection: @activity.badges.map {  |badge|   [raw("<div>#{badge.name}</div>#{image_tag badge.icon, class: 'badge-large'}"), badge.id]},
             as: :radio_buttons,
+            legend_tag: false,
             required: false,
 
             input_html: {data: {action: "change->add-badge#add", add_badge_target: "badge"}, class: "sr-only"}%>
