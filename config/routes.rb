@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :search do
+    resources :activities, only: :index
+  end
   resources :participations, only: :destroy
 
   resources :users, only: %i[show destroy]

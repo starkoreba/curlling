@@ -3,8 +3,8 @@ class Activity < ApplicationRecord
 
   belongs_to :category
   belongs_to :user
-  has_one :private_message
-  has_many :participations
+  has_one :private_message, dependent: :destroy
+  has_many :participations, dependent: :destroy
   has_many :users, -> { distinct }, through: :participations
   has_many :category_badges, through: :category
   has_many :badges, through: :category_badges
@@ -32,9 +32,9 @@ class Activity < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_category,
-                  against: [ :title ],
+                  against: [:title],
                   associated_against: {
-                    category: [ :name ]
+                    category: [:name]
                   },
                   using: {
                     tsearch: { prefix: true }
@@ -42,7 +42,7 @@ class Activity < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_address,
-                  against: [ :address ],
+                  against: [:address],
                   using: {
                     tsearch: { prefix: true }
                   }

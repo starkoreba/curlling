@@ -18,3 +18,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import SweetAlertController from "./sweet_alert_controller"
+application.register("sweet-alert", SweetAlertController)

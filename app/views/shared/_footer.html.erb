@@ -3,6 +3,7 @@
     <div class="container container-fluid py-3">
       <div class="text-center">
         <%= link_to "","/", class: "fa-solid fa-home" %>
+        <%= link_to "", search_activities_path, class: "fa-solid fa-search" %>
       </div>
       <div class="text-center">
         <% if current_user %>
@@ -18,7 +19,7 @@
       <div class="text-center">
         <% if current_user %>
           <% if current_user.avatar.attached? %>
-            <%= link_to "", user_path(current_user), class: "fa-solid fa-user" do %>
+            <%= link_to user_path(current_user) do %>
               <%= cl_image_tag(current_user.avatar.key, class: "avatar", crop: :fill) %>
               <% end %>
             <% else %>
