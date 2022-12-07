@@ -29,7 +29,7 @@
 
 
   <% if Date.today > @activity.end_date  %>
-      <%= link_to "Chat", chatroom_path, class: "btn gradient-btn g-btn-lg" %>
+      <%= link_to "Chat", activity_private_message_path(@activity, @private_message), class: "btn gradient-btn g-btn-lg" %>
   <% else %>
     <div id="badge-assignation">
       <% @activity.users.excluding(current_user).each do |user| %>
