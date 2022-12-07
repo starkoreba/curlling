@@ -2,7 +2,7 @@
   width: 56px;
   border-radius: 50%;
   margin-top: 24px;
-  opacity: 0.9;
+  opacity: 0.6;
 }
 
 
@@ -20,11 +20,10 @@
   }
 
   input.active + label {
-    opacity: 1;
+    filter: contrast(300%);
     }
 
   input.grayed-out + label {
-    filter: grayscale(0.8);
     opacity: 0.5;
   }
 
