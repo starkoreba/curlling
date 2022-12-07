@@ -32,7 +32,6 @@
 <div class = "participants-container d-flex align-items-center  mt-3">
     <%  @activity.users.excluding(@activity.user).each do |user| %>
       <div class="row">
-      <h3>Liste des participants</h3>
         <% if user.avatar.attached? %>
           <%= cl_image_tag(user.avatar.key, class: "avatar-large", crop: :fill) %>
         <% else %>

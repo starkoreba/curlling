@@ -6,7 +6,7 @@
 
 
 
-  <% if Date.today > @activity.end_date  %>
+  <% if Date.today < @activity.end_date  %>
       <%= link_to "Chat", activity_private_message_path(@activity, @private_message), class: "btn gradient-btn g-btn-lg" %>
   <% else %>
     <div id="badge-assignation">
