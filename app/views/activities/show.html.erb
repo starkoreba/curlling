@@ -2,7 +2,7 @@
   <%= render "activities/show", activity: @activity %>
   <br>
   <br>
-  <div class="row mt-5">
+  <div class="row mt-3">
      <% if @activity.user != current_user %>
       <%= simple_form_for [@activity, @new_participation] do |f| %>
         <%= f.button :submit, "Je participe", class: "btn gradient-btn g-btn-lg" %>
