@@ -1,17 +1,18 @@
 <div class="container">
   <%= render "activities/show", activity: @activity %>
+  <%= render "activities/participants", activity: @activity %>
   <br>
   <br>
   <div class="row mt-5" data-controller="sweet-alert">
     <% if @activity.user != current_user %>
     <button data-action="click->sweet-alert#participate" class="btn gradient-btn g-btn-lg">Je participe</button>
-      <%= simple_form_for [@activity, @new_participation], data: { sweet_alert_target: "form"} do |f| %>
+      <%= simple_form_for [@activity, @new_participation], data: { sweet_alert_target: "form" } do |f| %>
         <%= f.button :submit, hidden: true %>
       <% end %>
     <% end %>
   </div>
 </div>
- <%# ----- delete -------%>
+<%# ----- delete -------%>
 <div class="links-container d-flex justify-content-between">
   <div class ="row ms-2">
     <% if @activity.user == current_user && @activity.participations.count == 1 %>
