@@ -1,16 +1,33 @@
 <div class="large-card-product">
-  <%= link_to activity_path(activity) do %>
-    <% if activity.picture.attached? %>
-      <%= cl_image_tag(activity.picture.key, crop: :fill) %>
-    <% else %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <% if Date.today < activity.end_date %>
+    <%= link_to activity_path(activity) do %>
+      <% if activity.picture.attached? %>
+        <%= cl_image_tag(activity.picture.key, crop: :fill) %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <% end %>
     <% end %>
-  <% end %>
-  <div class="large-card-product-infos">
-    <div class="header">
-      <h2><%= activity.title %></h2>
-      <p class="date"><%= activity.start_date.strftime("%-d/%-m/%y: %H:%M") %>  <%= activity.end_date.strftime("%-d/%-m/%y: %H:%M") %></p>
+    <div class="large-card-product-infos">
+      <div class="header">
+        <h2><%= activity.title %></h2>
+        <p class="date"><%= activity.start_date.strftime("%-d/%-m/%y: %H:%M") %>  <%= activity.end_date.strftime("%-d/%-m/%y: %H:%M") %></p>
+      </div>
+      <p><%= activity.address %></p>
     </div>
-    <p><%= activity.address %></p>
-  </div>
+  <% else %>
+    <%= link_to activity_participation_path(activity) do %>
+    <% if activity.picture.attached? %>
+        <%= cl_image_tag(activity.picture.key, crop: :fill) %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <% end %>
+    <% end %>
+    <div class="large-card-product-infos">
+      <div class="header">
+        <h2><%= activity.title %></h2>
+        <p class="date"><%= activity.start_date.strftime("%-d/%-m/%y: %H:%M") %>  <%= activity.end_date.strftime("%-d/%-m/%y: %H:%M") %></p>
+      </div>
+      <p><%= activity.address %></p>
+    </div>
+  <% end %>
 </div>
