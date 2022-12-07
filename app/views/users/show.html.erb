@@ -52,7 +52,7 @@ Event list START -->
       <% end %>
     <% end %>
   </div>
-  <div class="mt-3">
+ <div class="mt-3">
       <% current_user.participations.each do |participation|%>
         <% if participation.activity.end_date < Date.today %>
           <%= render "activities/activity_card", activity: participation.activity %>
