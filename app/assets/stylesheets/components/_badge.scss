@@ -2,4 +2,30 @@
   width: 56px;
   border-radius: 50%;
   margin-top: 24px;
+  // opacity: 0.6;
+}
+
+
+#badge-assignation {
+
+  fieldset.user_badge_badge {
+
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .disable {
+    pointer-events: none;
+  }
+
+  input.active + label {
+    opacity: 0.8;
+    }
+
+  input.grayed-out + label {
+    filter: grayscale(1);
+    opacity: 0.5;
+  }
+
 }

@@ -10,8 +10,14 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
+import AddBadgeController from "./add_badge_controller"
+application.register("add-badge", AddBadgeController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import SweetAlertController from "./sweet_alert_controller"
+application.register("sweet-alert", SweetAlertController)

@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="text-center my-2">Curlling</h1>
+  <%= render "activities/form_search" %>
+
+  <div class="row mt-5">
+    <% @activities_cat.each do |activities| %>
+    <% unless activities.empty? %>
+    <div class="col">
+      <h2 class="mt-2"><%= activities.first.category.name %></h2>
+    </div>
+    <div class="row mt-2 mb-3">
+      <% activities.each do |activity| %>
+        <div class="col">
+          <%= render "activities/activity_card", activity: activity %>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
