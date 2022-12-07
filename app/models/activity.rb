@@ -31,9 +31,9 @@ class Activity < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_category,
-                  against: [ :title ],
+                  against: [:title],
                   associated_against: {
-                    category: [ :name ]
+                    category: [:name]
                   },
                   using: {
                     tsearch: { prefix: true }
@@ -41,7 +41,7 @@ class Activity < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_address,
-                  against: [ :address ],
+                  against: [:address],
                   using: {
                     tsearch: { prefix: true }
                   }
