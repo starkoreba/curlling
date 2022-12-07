@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :messages, only: %i[show create]
     end
     resources :users, only:[] do
-      resources :user_badges, only: [:create]
+      resources :user_badges, only: :create
     end
   end
 
