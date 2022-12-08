@@ -30,9 +30,6 @@ class ActivitiesController < ApplicationController
     @new_participation = Participation.new
   end
 
-  def infos
-  end
-
   def new
     @activity = Activity.new
   end
