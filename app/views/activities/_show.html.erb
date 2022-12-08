@@ -16,7 +16,7 @@
 <%# ----- text zone -------%>
 <div class="row">
   <h2><%= @activity.title %></h2>
-  <p class="mb-1"><%= @activity.start_date.strftime("%-d/%-m/%y à %H:%M") %></p>
+  <p class="mb-1">du <%= @activity.start_date.strftime("%-d/%-m/%y à %H:%M") %> au <%= @activity.end_date.strftime("%-d/%-m/%y à %H:%M") %></p>
   <p class="mb-1"><%= @activity.address %></p>
   <span class="mb-3">
     <% if activity.price > 0 %>
