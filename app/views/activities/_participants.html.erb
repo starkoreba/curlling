@@ -1,8 +1,8 @@
 <% unless @activity.users.empty? %>
 <h2 class="mt-5">Participants</h2>
-<div class = "participants-container d-flex align-items-center  mt-3">
+<div class = "row flex-nowrap overflow-auto mt-3">
     <%  @activity.users.excluding(@activity.user).each do |user| %>
-      <div class="row">
+      <div class="col m-0">
         <%=  link_to user_path(user) do %>
           <% if user.avatar.attached? %>
             <%= cl_image_tag(user.avatar.key, class: "avatar-large", crop: :fill) %>
