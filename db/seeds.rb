@@ -199,95 +199,6 @@ puts "Created #{activity6.title}"
 # activity10
 puts "Finished!"
 
-# --- Culture activities ---
-puts "Creating culture activities..."
-act11_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity11_ykplwm.jpg")
-activity11 = Activity.new(title: "Musée Beaux Arts", start_date: DateTime.new(2023, 1, 15, 15), end_date: DateTime.new(2023, 1, 15, 18), description: "Je propose une sortie au musée des Beaux-Arts de Bordeaux. ", price: 10, address: "20 cours d'Albret, 33300 Bordeaux", user: user7, category: category2)
-activity11.picture.attach(io: act11_picture, filename: "act11.png", content_type: "image/png")
-activity11.save!
-puts "Created #{activity11.title}"
-
-act12_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324264/activity12_l9fs8g.jpg")
-activity12 = Activity.new(title: "Museum Sciences et nature ", start_date: DateTime.new(2022, 12, 18, 14), end_date: DateTime.new(2022, 12, 18, 17), description: "Pour les amateurs de sciences et nature, je propose une sortie au muséum de Bordeaux. ", price: 12, address: "5 place Bardineau, 33300 Bordeaux", user: user6, category: category2)
-activity12.picture.attach(io: act12_picture, filename: "act12.png", content_type: "image/png")
-activity12.save!
-puts "Created #{activity12.title}"
-
-act13_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity13_wkgltm.jpg")
-activity13 = Activity.new(title: "Ciné 'Le Lycéen'", start_date: DateTime.new(2022, 12, 11, 19), end_date: DateTime.new(2022, 12, 11, 23), description: "Je propose une sortie ciné pour aller voir le film Le Lycéeen à l'UGC de Bordeaux", price: 8, address: "13 rue Georges Bonnac, 33300 Bordeaux", user: user9, category: category2)
-activity13.picture.attach(io: act13_picture, filename: "act13.png", content_type: "image/png")
-activity13.save!
-puts "Created #{activity13.title}"
-
-act14_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity14_nvhlsw.jpg")
-activity14 = Activity.new(title: "'Expo Planet or Plastic'", start_date: DateTime.new(2022, 12, 29, 14), end_date: DateTime.new(2022, 12, 29, 18), description: " L'exposition 'Planet or Plastic' me parait très intéressante. Avis aux amateurs. Musée Mer Marine à Bordeaux", price: 11, address: "89 rue des étrangers, 33300 Bordeaux", user: user8, category: category2)
-activity14.picture.attach(io: act14_picture, filename: "act14.png", content_type: "image/png")
-activity14.save!
-puts "Created #{activity14.title}"
-
-act15_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity15_jzgqwc.jpg")
-activity15 = Activity.new(title: "Cinéma 'Le Torrent' ", start_date: DateTime.new(2022, 12, 15, 20), end_date: DateTime.new(2022, 12, 15, 23), description: " Soirée ciné à l'UGC du Bassin des Flots", price: 8, address: "13 rue Georges Bonnac, 33300 Bordeaux", user: user15, category: category2)
-activity15.picture.attach(io: act15_picture, filename: "act15.png", content_type: "image/png")
-activity15.save!
-puts "Created #{activity15.title}"
-
-act16_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity16_uaqzgu.jpg")
-activity16 = Activity.new(title: "Théâtre comédie", start_date: DateTime.new(2022, 12, 14, 21), end_date: DateTime.new(2022, 12, 14, 23), description: "Je propose une soirée spectacle : Acazar comedy live show", price: 9, address: "170 cours du Médoc, 33000 Bordeaux", user: user12, category: category2)
-activity16.picture.attach(io: act16_picture, filename: "act16.png", content_type: "image/png")
-activity16.save!
-puts "Created #{activity16.title}"
-
-# activity17
-# activity18
-# activity19
-# activity20
-puts "Finished!"
-
-# --- Games activities ---
-puts "Creating games activities..."
-
-act21_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity21_j4iz4b.jpg")
-activity21 = Activity.new(title: "Soirée jeux", start_date: DateTime.new(2022, 12, 16, 19), end_date: DateTime.new(2022, 12, 16, 22), description: "Pour les plus joueurs d'entre vous, soirée jeux aux Jeux Barjo.", price: 10, address: '12 Rue Saint-James, 33300 Bordeaux', user: user8, category: category3)
-activity21.picture.attach(io: act21_picture, filename: "act21.png", content_type: "image/png")
-activity21.save!
-puts "Created #{activity21.title}"
-
-act22_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity22_hdm4h3.jpg")
-activity22 = Activity.new(title: "Jeux de société", start_date: DateTime.new(2022, 12, 23, 20), end_date: DateTime.new(2022, 12, 23, 23), description: "Je propose une soirée jeux à la veille de Noel aux Jeux Barjo.", price: 10, address: '12 Rue Saint-James, 33300 Bordeaux', user: user16, category: category3)
-activity22.picture.attach(io: act22_picture, filename: "act22.png", content_type: "image/png")
-activity22.save!
-puts "Created #{activity22.title}"
-
-act23_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity23_ulowyd.jpg")
-activity23 = Activity.new(title: "Echecs", start_date: DateTime.new(2022, 12, 22, 11), end_date: DateTime.new(2022, 12, 22, 17), description: "Tournoi à l'Echiquier Bordelais", price: 7, address: '36 rue Buhan, 33300 Bordeaux', user: user7, category: category3)
-activity23.picture.attach(io: act23_picture, filename: "act23.png", content_type: "image/png")
-activity23.save!
-puts "Created #{activity23.title}"
-
-act24_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324264/activity24_qhzkxj.jpg")
-activity24 = Activity.new(title: "Après-midi jeux", start_date: DateTime.new(2023, 1, 6, 14), end_date: DateTime.new(2023, 1, 6, 18), description: "Un après-midi dédié aux jeux, ouvert à tous à l'espace EDIL", price: 0, address: '5 place Sainte-Eulalie, 33300 Bordeaux', user: user5, category: category3)
-activity24.picture.attach(io: act24_picture, filename: "act24.png", content_type: "image/png")
-activity24.save!
-puts "Created #{activity24.title}"
-
-act25_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity25_ozwrrd.jpg")
-activity25 = Activity.new(title: "Echecs", start_date: DateTime.new(2023, 1, 7, 19), end_date: DateTime.new(2023, 1, 7, 23), description: "Soirée échecs à Bordeaux Aspom Echec", price: 4, address: '131 bis rue Amédée Saint-Germain, 33300 Bordeaux', user: user9, category: category3)
-activity25.picture.attach(io: act25_picture, filename: "act25.png", content_type: "image/png")
-activity25.save!
-puts "Created #{activity25.title}"
-
-act26_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity26_qblvmh.jpg")
-activity26 = Activity.new(title: "Jeux de société", start_date: DateTime.new(2023, 1, 5, 18), end_date: DateTime.new(2023, 1, 5, 23), description: "Je propose une soirée jeux au Muse Café. Il est possible de manger sur place. J'ai indiqué le prix sans les consommations. Venez nombreux!", price: 5, address: '10 rue Brascassat, 33800 Bordeaux', user: user15, category: category3)
-activity26.picture.attach(io: act26_picture, filename: "act26.png", content_type: "image/png")
-activity26.save!
-puts "Created #{activity26.title}"
-
-# activity27
-# activity28
-# activity29
-# activity30
-puts "Finished!"
-
 # --- Indoor activities ---
 puts "Creating indoor activities..."
 
@@ -303,6 +214,12 @@ activity32.picture.attach(io: act32_picture, filename: "act32.png", content_type
 activity32.save!
 puts "Created #{activity32.title}"
 
+act35_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity35_b0i8ru.jpg")
+activity35 = Activity.new(title: "Billard", start_date: DateTime.new(2022, 12, 30, 19), end_date: DateTime.new(2022, 12, 30, 23), description: "Soirée billard, pour débutants ou confirmés. Venez comme vous êtes!" , price: 5, address: 'Terrasse du Général Koenig, 33300 Bordeaux', user: user11, category: category4)
+activity35.picture.attach(io: act35_picture, filename: "act35.png", content_type: "image/png")
+activity35.save!
+puts "Created #{activity35.title}"
+
 act33_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity33_bhloo3.png")
 activity33 = Activity.new(title: "Escape-game", start_date: DateTime.new(2022, 12, 17, 20), end_date: DateTime.new(2022, 12, 17, 23), description: "Escape-game Clock Escape" , price: 10, address: "36 rue du Pont de la Mousque, 33000 Bordeaux", user: user4, category: category4)
 activity33.picture.attach(io: act33_picture, filename: "act33.png", content_type: "image/png")
@@ -315,12 +232,6 @@ activity34.picture.attach(io: act34_picture, filename: "act34.png", content_type
 activity34.save!
 puts "Created #{activity34.title}"
 
-act35_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity35_b0i8ru.jpg")
-activity35 = Activity.new(title: "Billard", start_date: DateTime.new(2022, 12, 30, 19), end_date: DateTime.new(2022, 12, 30, 23), description: "Soirée billard, pour débutants ou confirmés. Venez comme vous êtes!" , price: 5, address: 'Terrasse du Général Koenig, 33300 Bordeaux', user: user11, category: category4)
-activity35.picture.attach(io: act35_picture, filename: "act35.png", content_type: "image/png")
-activity35.save!
-puts "Created #{activity35.title}"
-
 act36_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324264/activity36_ywzxh1.jpg")
 activity36 = Activity.new(title: "Karting", start_date: DateTime.new(2022, 12, 18, 14), end_date: DateTime.new(2022, 12, 18, 18), description: "Après-midi Karting indoor au Kart System Bordeaux-Lac" , price: 7, address: 'rue du Grand Barail, 33300 Bordeaux', user: user14, category: category4)
 activity36.picture.attach(io: act36_picture, filename: "act36.png", content_type: "image/png")
@@ -332,6 +243,52 @@ puts "Created #{activity36.title}"
 # activity39
 # activity40
 puts "Finished!"
+
+# --- Games activities ---
+puts "Creating games activities..."
+
+
+act23_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity23_ulowyd.jpg")
+activity23 = Activity.new(title: "Echecs", start_date: DateTime.new(2022, 12, 22, 11), end_date: DateTime.new(2022, 12, 22, 17), description: "Tournoi à l'Echiquier Bordelais", price: 7, address: '36 rue Buhan, 33300 Bordeaux', user: user7, category: category3)
+activity23.picture.attach(io: act23_picture, filename: "act23.png", content_type: "image/png")
+activity23.save!
+puts "Created #{activity23.title}"
+
+act24_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324264/activity24_qhzkxj.jpg")
+activity24 = Activity.new(title: "Jeux", start_date: DateTime.new(2023, 1, 6, 14), end_date: DateTime.new(2023, 1, 6, 18), description: "Un après-midi dédié aux jeux, ouvert à tous à l'espace EDIL", price: 0, address: '5 place Sainte-Eulalie, 33300 Bordeaux', user: user5, category: category3)
+activity24.picture.attach(io: act24_picture, filename: "act24.png", content_type: "image/png")
+activity24.save!
+puts "Created #{activity24.title}"
+
+act26_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity26_qblvmh.jpg")
+activity26 = Activity.new(title: "Jeux", start_date: DateTime.new(2023, 1, 5, 18), end_date: DateTime.new(2023, 1, 5, 23), description: "Je propose une soirée jeux au Muse Café. Il est possible de manger sur place. J'ai indiqué le prix sans les consommations. Venez nombreux!", price: 5, address: '10 rue Brascassat, 33800 Bordeaux', user: user15, category: category3)
+activity26.picture.attach(io: act26_picture, filename: "act26.png", content_type: "image/png")
+activity26.save!
+puts "Created #{activity26.title}"
+
+act25_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity25_ozwrrd.jpg")
+activity25 = Activity.new(title: "Echecs", start_date: DateTime.new(2023, 1, 7, 19), end_date: DateTime.new(2023, 1, 7, 23), description: "Soirée échecs à Bordeaux Aspom Echec", price: 4, address: '131 bis rue Amédée Saint-Germain, 33300 Bordeaux', user: user9, category: category3)
+activity25.picture.attach(io: act25_picture, filename: "act25.png", content_type: "image/png")
+activity25.save!
+puts "Created #{activity25.title}"
+
+act21_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity21_j4iz4b.jpg")
+activity21 = Activity.new(title: "Jeux", start_date: DateTime.new(2022, 12, 16, 19), end_date: DateTime.new(2022, 12, 16, 22), description: "Pour les plus joueurs d'entre vous, soirée jeux aux Jeux Barjo.", price: 10, address: '12 Rue Saint-James, 33300 Bordeaux', user: user8, category: category3)
+activity21.picture.attach(io: act21_picture, filename: "act21.png", content_type: "image/png")
+activity21.save!
+puts "Created #{activity21.title}"
+
+act22_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324161/activity22_hdm4h3.jpg")
+activity22 = Activity.new(title: "Jeux", start_date: DateTime.new(2022, 12, 23, 20), end_date: DateTime.new(2022, 12, 23, 23), description: "Je propose une soirée jeux à la veille de Noel aux Jeux Barjo.", price: 10, address: '12 Rue Saint-James, 33300 Bordeaux', user: user16, category: category3)
+activity22.picture.attach(io: act22_picture, filename: "act22.png", content_type: "image/png")
+activity22.save!
+puts "Created #{activity22.title}"
+# activity27
+# activity28
+# activity29
+# activity30
+puts "Finished!"
+
 
 # --- Video games activities ---
 puts "Creating video games activities..."
@@ -370,6 +327,50 @@ puts "Created #{activity45.title}"
 # activity47
 # activity48
 # activity49
+puts "Finished!"
+
+# --- Culture activities ---
+puts "Creating culture activities..."
+act11_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity11_ykplwm.jpg")
+activity11 = Activity.new(title: "Art", start_date: DateTime.new(2023, 1, 15, 15), end_date: DateTime.new(2023, 1, 15, 18), description: "Je propose une sortie au musée des Beaux-Arts de Bordeaux. ", price: 10, address: "20 cours d'Albret, 33300 Bordeaux", user: user7, category: category2)
+activity11.picture.attach(io: act11_picture, filename: "act11.png", content_type: "image/png")
+activity11.save!
+puts "Created #{activity11.title}"
+
+act12_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324264/activity12_l9fs8g.jpg")
+activity12 = Activity.new(title: "Expo Nature", start_date: DateTime.new(2022, 12, 18, 14), end_date: DateTime.new(2022, 12, 18, 17), description: "Pour les amateurs de sciences et nature, je propose une sortie au muséum de Bordeaux. ", price: 12, address: "5 place Bardineau, 33300 Bordeaux", user: user6, category: category2)
+activity12.picture.attach(io: act12_picture, filename: "act12.png", content_type: "image/png")
+activity12.save!
+puts "Created #{activity12.title}"
+
+act13_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity13_wkgltm.jpg")
+activity13 = Activity.new(title: "Le Lycéen", start_date: DateTime.new(2022, 12, 11, 19), end_date: DateTime.new(2022, 12, 11, 23), description: "Je propose une sortie ciné pour aller voir le film Le Lycéeen à l'UGC de Bordeaux", price: 8, address: "13 rue Georges Bonnac, 33300 Bordeaux", user: user9, category: category2)
+activity13.picture.attach(io: act13_picture, filename: "act13.png", content_type: "image/png")
+activity13.save!
+puts "Created #{activity13.title}"
+
+act14_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity14_nvhlsw.jpg")
+activity14 = Activity.new(title: "'Planet-Plastic", start_date: DateTime.new(2022, 12, 29, 14), end_date: DateTime.new(2022, 12, 29, 18), description: " L'exposition 'Planet or Plastic' me parait très intéressante. Avis aux amateurs. Musée Mer Marine à Bordeaux", price: 11, address: "89 rue des étrangers, 33300 Bordeaux", user: user8, category: category2)
+activity14.picture.attach(io: act14_picture, filename: "act14.png", content_type: "image/png")
+activity14.save!
+puts "Created #{activity14.title}"
+
+act15_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity15_jzgqwc.jpg")
+activity15 = Activity.new(title: "Le Torrent", start_date: DateTime.new(2022, 12, 15, 20), end_date: DateTime.new(2022, 12, 15, 23), description: " Soirée ciné à l'UGC du Bassin des Flots", price: 8, address: "13 rue Georges Bonnac, 33300 Bordeaux", user: user15, category: category2)
+activity15.picture.attach(io: act15_picture, filename: "act15.png", content_type: "image/png")
+activity15.save!
+puts "Created #{activity15.title}"
+
+act16_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity16_uaqzgu.jpg")
+activity16 = Activity.new(title: "Comédie", start_date: DateTime.new(2022, 12, 14, 21), end_date: DateTime.new(2022, 12, 14, 23), description: "Je propose une soirée spectacle : Acazar comedy live show", price: 9, address: "170 cours du Médoc, 33000 Bordeaux", user: user12, category: category2)
+activity16.picture.attach(io: act16_picture, filename: "act16.png", content_type: "image/png")
+activity16.save!
+puts "Created #{activity16.title}"
+
+# activity17
+# activity18
+# activity19
+# activity20
 puts "Finished!"
 
 # --- Création des activités passées de Paul ---
