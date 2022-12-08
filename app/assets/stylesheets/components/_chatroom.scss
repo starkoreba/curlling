@@ -17,6 +17,15 @@
     height: 100%;
     overflow: scroll;
     padding: 1rem;
+
+    span {
+      font-size: 0.872em;
+    }
+  }
+
+  .message {
+    border: 1px solid lightgray;
+    border-radius: 5px;
   }
 
   #new_message {

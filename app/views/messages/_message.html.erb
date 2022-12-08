@@ -1,7 +1,12 @@
-<div id="message-<%= message.id %>">
+<div id="message-<%= message.id %>" class="message mb-3 p-2">
   <small>
-    <strong><%= message.user.nickname %> : </strong>
-    <i><%= local_time(message.created_at, '%e %b à %H:%M') %></i>
+  <% if message.user.avatar.attached? == false %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-mes" %>
+  <% else %>
+    <%= cl_image_tag(message.user.avatar.key, class: "avatar-mes", crop: :fill) %>
+  <% end %>
+    <strong><%= message.user.nickname %></strong>
+    <span><%= local_time(message.created_at, '%H:%M') %></span>
   </small>
-  <p><%= message.content %></p>
+  <p class="m-0"><%= message.content %></p>
 </div>
