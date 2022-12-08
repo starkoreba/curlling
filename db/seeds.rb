@@ -39,7 +39,7 @@ badge8 = Badge.create!(name: "Malin", icon: 'badges/smart_badge.png')
 badge9 = Badge.create!(name: "Enthousiaste", icon: 'badges/enthusiastic_badge.png')
 badge10 = Badge.create!(name: "Cultivé", icon: 'badges/cultured_badge.png')
 badge11 = Badge.create!(name: "Céatif", icon: 'badges/creative_badge.png')
-badge12 = Badge.create!(name: "Strategist", icon: 'badges/strategist_badge.png')
+badge12 = Badge.create!(name: "Stratège", icon: 'badges/strategist_badge.png')
 badge13 = Badge.create!(name: "Adroit", icon: 'badges/dexterous_badge.png')
 
 puts "Finished!"
