@@ -1,12 +1,18 @@
-<div id="message-<%= message.id %>" class="message mb-3 p-2">
-  <small>
+<div id="message-<%= message.id %>">
   <% if message.user.avatar.attached? == false %>
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-mes" %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-mes mb-1" %>
   <% else %>
-    <%= cl_image_tag(message.user.avatar.key, class: "avatar-mes", crop: :fill) %>
+    <%= cl_image_tag(message.user.avatar.key, class: "avatar-mes mb-1", crop: :fill) %>
   <% end %>
-    <strong><%= message.user.nickname %></strong>
+  <small>
+    <% unless message.user == current_user %>
+      <strong><%= message.user.nickname %></strong>
+      <% else %>
+      <strong>Moi</strong>
+    <% end %>
     <span><%= local_time(message.created_at, '%H:%M') %></span>
   </small>
-  <p class="m-0"><%= message.content %></p>
+  <div class="message mb-3">
+  <p class="m-0 p-1"><%= message.content %></p>
+  </div>
 </div>
