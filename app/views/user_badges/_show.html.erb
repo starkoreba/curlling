@@ -10,7 +10,7 @@
           <%= image_tag "default_avatar.png", class: "avatar-large", alt: "" %>
         <% end %>
       </div>
-      <div class="col">
+      <div class="col text-center">
         <%= simple_form_for [@activity, user, UserBadge.new], html:{id:"new-user-badge#{user.id}", data: {controller:"add-badge"}}, namespace: "user_#{user.id}" do |f| %>
           <%= f.input :badge,
             collection: @activity.badges.map {  |badge|   [raw("<div>#{badge.name}</div>#{image_tag badge.icon, class: 'badge-large'}"), badge.id]},
