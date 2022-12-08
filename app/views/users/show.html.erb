@@ -1,3 +1,6 @@
+<% content_for :meta_title, "#{@user.nickname} - #{DEFAULT_META["meta_name"]}" %>
+<%# content_for :meta_description, @activity.description %>
+<% content_for :meta_image, cl_image_path(@user.avatar.key) if @user.avatar.present? %>
 <div class="banner position-relative">
     <h1 class="text-center">Profile</h1>
 </div>
@@ -22,37 +25,51 @@
       </div>
     <% end %>
   </div>
-  <!-- =======================
-  Badge END -->
 </div>
-<!-- =======================
-Event list START -->
-<div class="container">
+<div id="all-events">
   <div class="text-center mt-5">
-        <%= link_to "Activités passées", "#", class: "btn btn-ghost active" %>
-        <%= link_to "Activités à venir", "#", class: "btn btn-ghost" %>
+    <input type="checkbox" id="switch">
+    <div class="app">
+      <div class="content">
+        <label for="switch">
+          <div class="toggle"></div>
+          <div class="names">
+            <p class="dark mt-2" data-bs-toggle="collapse" aria-expanded="true", aria-controls="past-events" data-bs-target="#future-events">À venir</p>
+            <p class="light mt-2" data-bs-toggle="collapse" aria-expanded="false", aria-controls="past-events" data-bs-target="#past-events">Passées</p>
+          </div>
+        </label>
+      </div>
+    </div>
   </div>
-  <div class="mt-3">
-    <% @user.activities.each do |activity|%>
-      <% if activity.end_date < Date.today %>
-        <%= render "activities/activity_card", activity: activity %>
-      <% end %>
-      <% if activity.end_date > Date.today %>
-        <%= render "activities/activity_card", activity: activity %>
-      <% end %>
-    <% end %>
+  <div class="collapse show" id="future-events" data-bs-parent= "#all-events">
+    <div class="card card-body">
+      <p>
+        <% @user.activities.each do |activity|%>
+          <% if activity.end_date > Date.today %>
+            <%= render "activities/activity_card", activity: activity %>
+          <% end %>
+        <% end %>
+        <% @user.participations.each do |participation|%>
+          <% if participation.activity.end_date > Date.today %>
+            <%= render "activities/activity_card", activity: participation.activity %>
+            <% end %>
+        <% end %>
+      </p>
+    </div>
   </div>
-  <div class="mt-3">
+  <div class="collapse" id="past-events" data-bs-parent= "#all-events">
+    <div class="card card-body">
+      <% @user.activities.each do |activity|%>
+        <% if activity.end_date < Date.today %>
+          <%= render "activities/activity_card", activity: activity %>
+        <% end %>
+      <% end %>
       <% @user.participations.each do |participation|%>
         <% if participation.activity.end_date < Date.today %>
           <%= render "activities/activity_card", activity: participation.activity %>
         <% end %>
-        <% if participation.activity.end_date > Date.today %>
-          <%= render "activities/activity_card", activity: participation.activity %>
-        <% end %>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
-<!-- =======================
-Event list END -->

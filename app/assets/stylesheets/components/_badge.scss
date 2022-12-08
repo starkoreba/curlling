@@ -18,13 +18,19 @@
     pointer-events: none;
   }
 
+  .inactive-badge {
+    filter: grayscale(0.8);
+    opacity: 0.6;
+  }
+
   input.active + label {
+    filter: grayscale(0);
     opacity: 1;
     }
 
-  input.grayed-out + label {
-    filter: grayscale(0.8);
+  input.not-selected + label {
     opacity: 0.5;
   }
+
 
 }
