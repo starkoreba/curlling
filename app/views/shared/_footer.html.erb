@@ -1,4 +1,4 @@
-<div class="footer-navbar">
+<div class="footer-navbar" data-controller="sweet-alert">
   <nav class="navbar fixed-bottom navbar-lewagon">
     <div class="container d-flex justify-content-evenly py-3">
       <div class="text-center mx-4">
@@ -12,7 +12,7 @@
           <% if current_user.score > 100 %>
             <%= link_to "", new_activity_path(current_user), class: "fa-solid fa-plus fa-xl" %>
           <% else %>
-            <%= link_to "", infos_path, class: "fa-solid fa-plus fa-xl" %>
+            <i class="fa-solid fa-plus fa-xl" data-action="click->sweet-alert#add"></i>
           <% end %>
         <% else %>
           <%= link_to "", new_user_session_path, class: "fa-solid fa-plus fa-xl" %>
