@@ -27,7 +27,7 @@ export default class extends Controller {
     if (target === event.currentTarget) {
       target.classList.add("active")
     } else {
-      target.classList.add("grayed-out")
+      target.classList.add("not-selected")
     }
   })
 }
