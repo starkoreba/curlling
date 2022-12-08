@@ -2,21 +2,34 @@
   <nav class="navbar fixed-bottom navbar-lewagon">
     <div class="container d-flex justify-content-evenly py-3">
       <div class="text-center mx-4">
-        <%= link_to "","/", class: "fa-solid fa-home fa-xl" %>
-      </div>
-      <div class="text-center mx-4">
-        <%= link_to "", search_activities_path, class: "fa-solid fa-search fa-xl" %>
-      </div>
-      <div class="text-center mx-4">
-        <% if current_user %>
-          <% if current_user.score > 100 %>
-            <%= link_to "", new_activity_path(current_user), class: "fa-solid fa-plus fa-xl" %>
-          <% else %>
-            <%= link_to "", infos_path, class: "fa-solid fa-plus fa-xl" %>
-          <% end %>
+        <% if current_page?(root_path) %>
+          <%= link_to "","/", class: "fa-solid fa-house-user fa-xl" %>
         <% else %>
-          <%= link_to "", new_user_session_path, class: "fa-solid fa-plus fa-xl" %>
+          <%= link_to "","/", class: "fa-solid fa-home fa-xl" %>
         <% end %>
+      </div>
+      <div class="text-center mx-4">
+      <% if current_page?(search_activities_path) %>
+        <%= link_to "", search_activities_path, class: "fa-solid fa-magnifying-glass-plus fa-xl" %>
+      <% else %>
+        <%= link_to "", search_activities_path, class: "fa-solid fa-search fa-xl" %>
+      <% end %>
+      </div>
+      <div class="text-center mx-4">
+          <% if current_user %>
+            <% if current_user.score > 100 %>
+              <% if current_page?(new_activity_path(current_user)) %>
+                <%= link_to "", new_activity_path(current_user), class: "fa-regular fa-square-plus fa-xl" %>
+              <% else %>
+                <%= link_to "", new_activity_path(current_user), class: "fa-solid fa-plus fa-xl" %>
+              <% end %>
+            <% else %>
+              <%= link_to "", infos_path, class: "fa-solid fa-plus fa-xl" %>
+            <% end %>
+          <% else %>
+            <%= link_to "", new_user_session_path, class: "fa-solid fa-plus fa-xl" %>
+          <% end %>
+
       </div>
       <div class="text-center mx-4">
         <% if current_user %>
