@@ -1,7 +1,7 @@
 <div id="message-<%= message.id %>">
   <small>
     <strong><%= message.user.nickname %> : </strong>
-    <i><%= local_time(message.created_at, '%a %e %b à %H:%M') %></i>
+    <i><%= local_time(message.created_at, '%e %b à %H:%M') %></i>
   </small>
   <p><%= message.content %></p>
 </div>

@@ -2,6 +2,6 @@
   <%= render "activities/show", activity: @activity %>
   <%= render "activities/participants", activity: @activity %>
   <div class="row mt-5">
-    <%= link_to "Chat", activity_private_message_path(@activity, @private_message), class: "btn gradient-btn g-btn-lg" %>
+    <%= link_to "Messagerie", activity_private_message_path(@activity, @private_message), class: "btn gradient-btn g-btn-lg" %>
   </div>
   </div>
