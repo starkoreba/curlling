@@ -1,0 +1,5 @@
+meta_name: "Curlling"
+meta_title: "Curlling - Page d'accueil"
+meta_description: "Plus besoin de prendre un curly si t'as pas d'amis va sur Curlling"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@starkinders"   # required for Twitter Cards
