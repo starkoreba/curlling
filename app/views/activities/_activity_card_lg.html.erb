@@ -9,7 +9,7 @@
   <div class="small-card-activity-infos">
     <div>
       <h2><%= activity.title.truncate(13) %></h2>
-      <p class="pt-2"><%= activity.start_date.strftime("%-d/%-m/%y à %H:%M") %> <br> <%= activity.end_date.strftime("%-d/%-m/%y à %H:%M") %></p>
+      <p class="pt-2"><%= activity.start_date.strftime("%-d/%-m/%y à %H:%M") %></p>
     </div>
       <h3 class="small-card-activity-pricing">
         <% if activity.price > 0 %>
