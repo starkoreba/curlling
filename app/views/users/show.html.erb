@@ -3,20 +3,21 @@
     <h1 class="text-center">Profile</h1>
   </div>
   <div class="position-absolute top-100 start-50 translate-middle">
-    <% if current_user.avatar.attached? == false %>
+    <% if @user.avatar.attached? == false %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-big" %>
     <% else %>
-      <%= cl_image_tag(current_user.avatar.key, class: "avatar-big", crop: :fill) %>
+      <%= cl_image_tag(@user.avatar.key, class: "avatar-big", crop: :fill) %>
     <% end %>
   </div>
 </div>
 <div class="container title-profil">
-  <h1><%= current_user.first_name %> <%= current_user.last_name.capitalize %></h1>
-  <h3><strong><%= ((Time.now - current_user.birthday.to_time)/(60*60*24*365)).floor %></strong> ans</h3>
+  <h1><%= @user.first_name %> <%= @user.last_name.capitalize %></h1>
+  <h3><strong><%= ((Time.now - @user.birthday.to_time)/(60*60*24*365)).floor %></strong> years old</h3>
   <!-- =======================
   Badge START -->
   <div class="row flex-nowrap overflow-auto">
-    <% current_user.user_badges_as_receiver.map(&:badge).each do |badge| %>
+    <% @user.user_badges_as_receiver.group_by(&:badge_id).each do |badge_group| %>
+      <% badge = badge_group[1].first.badge %>
       <div class="col align-self-start">
         <%= image_tag badge.icon, class: "badge-large" %>
         <h3><%= badge.name %> x <%= @num_badges[badge.id] %></h3>
@@ -34,7 +35,7 @@ Event list START -->
         <%= link_to "Next event", "#", class: "btn btn-ghost" %>
   </div>
   <div class="mt-3">
-    <% current_user.activities.each do |activity|%>
+    <% @user.activities.each do |activity|%>
       <% if activity.end_date < Date.today %>
         <%= render "activities/activity_card", activity: activity %>
       <% end %>
@@ -44,7 +45,7 @@ Event list START -->
     <% end %>
   </div>
  <div class="mt-3">
-      <% current_user.participations.each do |participation|%>
+      <% @user.participations.each do |participation|%>
         <% if participation.activity.end_date < Date.today %>
           <%= render "activities/activity_card", activity: participation.activity %>
         <% end %>
