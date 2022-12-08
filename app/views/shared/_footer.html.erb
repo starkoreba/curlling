@@ -24,7 +24,7 @@
                 <%= link_to "", new_activity_path(current_user), class: "fa-solid fa-plus fa-xl" %>
               <% end %>
             <% else %>
-              <%= link_to "", infos_path, class: "fa-solid fa-plus fa-xl" %>
+              <i class="fa-solid fa-plus fa-xl" data-action="click->sweet-alert#add"></i>
             <% end %>
           <% else %>
             <i class="fa-solid fa-plus fa-xl" data-action="click->sweet-alert#add"></i>
