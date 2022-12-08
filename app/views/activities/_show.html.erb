@@ -6,10 +6,12 @@
   <% end %>
 </div>
 <div class="py-3">
-  <% if @activity.user.avatar.attached? %>
-    <%= cl_image_tag(@activity.user.avatar.key, class: "avatar-large", crop: :fill) %>
-  <% else %>
-    <%= image_tag 'default_avatar.png', class: "avatar" %>
+  <%=  link_to user_path(@activity.user.id) do %>
+    <% if @activity.user.avatar.attached? %>
+      <%= cl_image_tag(@activity.user.avatar.key, class: "avatar-large", crop: :fill) %>
+    <% else %>
+      <%= image_tag 'default_avatar.png', class: "avatar" %>
+    <% end %>
   <% end %>
 </div>
 
