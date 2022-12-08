@@ -12,7 +12,7 @@
 </div>
 <div class="container title-profil">
   <h1><%= @user.first_name %> <%= @user.last_name.capitalize %></h1>
-  <h3><strong><%= ((Time.now - @user.birthday.to_time)/(60*60*24*365)).floor %></strong> years old</h3>
+  <h3><strong><%= ((Time.now - @user.birthday.to_time)/(60*60*24*365)).floor %></strong> ans</h3>
   <!-- =======================
   Badge START -->
   <div class="row flex-nowrap overflow-auto">
