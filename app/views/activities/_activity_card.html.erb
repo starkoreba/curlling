@@ -9,8 +9,8 @@
   <div class="large-card-product-infos">
     <div class="header">
       <h2><%= activity.title %></h2>
-      <p class="date">le <%= activity.start_date.strftime("%-d/%-m/%y") %></p>
-      <p class="date">de <%= activity.start_date.strftime("%Hh%M") %> à <%= activity.end_date.strftime("%Hh%M") %></p>
+      <p class="date">le <%= activity.start_date.strftime("%d/%m/%y") %></p>
+      <p class="date">de <%= activity.start_date.strftime("%Hh%M") %><br>à <%= activity.end_date.strftime("%Hh%M") %></p>
     </div>
     <p><%= activity.address %></p>
   </div>
