@@ -55,6 +55,7 @@ gem "simple_calendar", "~> 2.4"
 gem "sweetalert2"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
+gem 'local_time'
 gem "simple_form", github: "heartcombo/simple_form"
 gem "geocoder"
 
