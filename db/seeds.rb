@@ -350,7 +350,7 @@ activity13.save!
 puts "Created #{activity13.title}"
 
 act14_picture = URI.open("https://res.cloudinary.com/da3r3z7ya/image/upload/v1670324163/activity14_nvhlsw.jpg")
-activity14 = Activity.new(title: "'Planet-Plastic", start_date: DateTime.new(2022, 12, 29, 14), end_date: DateTime.new(2022, 12, 29, 18), description: " L'exposition 'Planet or Plastic' me parait très intéressante. Avis aux amateurs. Musée Mer Marine à Bordeaux", price: 11, address: "89 rue des étrangers, 33300 Bordeaux", user: user8, category: category2)
+activity14 = Activity.new(title: "Planet-Plastic", start_date: DateTime.new(2022, 12, 29, 14), end_date: DateTime.new(2022, 12, 29, 18), description: " L'exposition 'Planet or Plastic' me parait très intéressante. Avis aux amateurs. Musée Mer Marine à Bordeaux", price: 11, address: "89 rue des étrangers, 33300 Bordeaux", user: user8, category: category2)
 activity14.picture.attach(io: act14_picture, filename: "act14.png", content_type: "image/png")
 activity14.save!
 puts "Created #{activity14.title}"
