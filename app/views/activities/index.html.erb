@@ -8,9 +8,11 @@
         </div>
         <div class="row flex-nowrap overflow-auto mt-2 mb-3">
           <% activities.each do |activity| %>
-            <div class="col">
-              <%= render "activities/activity_card_lg", activity: activity %>
-            </div>
+            <% if activity.end_date > Date.today %>
+              <div class="col">
+                <%= render "activities/activity_card_lg", activity: activity %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>

@@ -12,6 +12,6 @@
       <p class="date">le <%= activity.start_date.strftime("%d/%m/%y") %></p>
       <p class="date">de <%= activity.start_date.strftime("%Hh%M") %><br>à <%= activity.end_date.strftime("%Hh%M") %></p>
     </div>
-    <p><%= activity.address %></p>
+    <p><%= activity.address.truncate(40) %></p>
   </div>
 </div>
