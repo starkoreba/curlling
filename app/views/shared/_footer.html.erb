@@ -1,11 +1,13 @@
 <div class="footer-navbar">
   <nav class="navbar fixed-bottom navbar-lewagon">
-    <div class="container container-fluid py-3">
-      <div class="text-center">
+    <div class="container d-flex justify-content-evenly py-3">
+      <div class="text-center mx-4">
         <%= link_to "","/", class: "fa-solid fa-home fa-xl" %>
-        <%= link_to "", search_activities_path, class: "fa-solid fa-search" %>
       </div>
-      <div class="text-center">
+      <div class="text-center mx-4">
+        <%= link_to "", search_activities_path, class: "fa-solid fa-search fa-xl" %>
+      </div>
+      <div class="text-center mx-4">
         <% if current_user %>
           <% if current_user.score > 100 %>
             <%= link_to "", new_activity_path(current_user), class: "fa-solid fa-plus fa-xl" %>
@@ -16,7 +18,7 @@
           <%= link_to "", new_user_session_path, class: "fa-solid fa-plus fa-xl" %>
         <% end %>
       </div>
-      <div class="text-center">
+      <div class="text-center mx-4">
         <% if current_user %>
           <% if current_user.avatar.attached? %>
             <%= link_to user_path(current_user) do %>
