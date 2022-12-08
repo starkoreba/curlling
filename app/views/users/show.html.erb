@@ -1,14 +1,14 @@
-<div class="banner position-relative">
+<div class="banner">
   <div class="container">
-    <h1 class="text-center">Profile</h1>
+    <h1 class="text-center position-relative">Profile</h1>
   </div>
-  <div class="position-absolute top-100 start-50 translate-middle">
-    <% if @user.avatar.attached? == false %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-big" %>
-    <% else %>
-      <%= cl_image_tag(@user.avatar.key, class: "avatar-big", crop: :fill) %>
-    <% end %>
-  </div>
+</div>
+<div class="position-absolute top-50 start-50 translate-middle">
+  <% if @user.avatar.attached? == false %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-big" %>
+  <% else %>
+    <%= cl_image_tag(@user.avatar.key, class: "avatar-big", crop: :fill) %>
+  <% end %>
 </div>
 <div class="container title-profil">
   <h1><%= @user.first_name %> <%= @user.last_name.capitalize %></h1>
@@ -20,7 +20,7 @@
       <% badge = badge_group[1].first.badge %>
       <div class="col align-self-start">
         <%= image_tag badge.icon, class: "badge-large" %>
-        <h3><%= badge.name %> x <%= @num_badges[badge.id] %></h3>
+        <h3><%= badge.name %><br>x <%= @num_badges[badge.id] %></h3>
       </div>
     <% end %>
   </div>
