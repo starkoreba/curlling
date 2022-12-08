@@ -19,15 +19,13 @@ export default class extends Controller {
     //   })
 
         // itération sur tous les badges this.targets
-   // si la target est celle sur laquelle j ai cliqué, j ajoute telle classe, sinon j'en ajoute uan autre
-  console.log(this.badgeTargets)
-  console.log(event.currentTarget)
-   this.badgeTargets.forEach((target) => {
+   // si la target est celle sur laquelle j ai cliqué, j ajoute telle classe, sinon j'en ajoute un autre
+    this.badgeTargets.forEach((target) => {
     this.element.classList.add("disable")
     if (target === event.currentTarget) {
       target.classList.add("active")
     } else {
-      target.classList.add("grayed-out")
+      target.classList.add("not-selected")
     }
   })
 }
