@@ -6,6 +6,9 @@
     <% @private_message.messages.each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
+    <% if @private_message.messages.empty? %>
+      <p>Sois le premier à envoyer un message</p>
+    <% end %>
   </div>
   <%= simple_form_for [@activity, @private_message, @message],
     html: {data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex"} do |f| %>
