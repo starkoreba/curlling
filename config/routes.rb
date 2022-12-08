@@ -18,6 +18,4 @@ Rails.application.routes.draw do
   resources :participations, only: :destroy
 
   resources :users, only: %i[show destroy]
-  get 'infos', to: "activities#infos"
-
 end
