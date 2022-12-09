@@ -1,6 +1,6 @@
 <div class="small-card-activity">
   <% participation = current_user.participations.find_by(activity: activity) if current_user%>
-  <%= link_to participation.present? ? activity_participation_path(activity, participation) : activity_path(activity) do %>
+  <%= link_to participation.present? && Date.today < activity.end_date ? activity_participation_path(activity, participation) : activity_path(activity) do %>
     <% if activity.picture.attached? %>
       <%= cl_image_tag(activity.picture.key, crop: :fill) %>
     <% else %>
