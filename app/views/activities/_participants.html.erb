@@ -1,6 +1,6 @@
 <% unless @activity.users.empty? %>
 <h2 class="mt-5">Participants</h2>
-<div class = "row flex-nowrap overflow-auto mt-3">
+<div class = "d-flex align-items-center flex-nowrap overflow-auto mt-3">
     <%  @activity.users.excluding(@activity.user).each do |user| %>
       <div class="col m-0">
         <%=  link_to user_path(user) do %>
