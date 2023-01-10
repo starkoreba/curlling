@@ -3,7 +3,7 @@ Curlling with two "L", not the sport. Si t'as pas d'amis, va sur [Curlling](http
 
 ## A propos
 Curlling est une application à destination des jeunes en pleine quête d'identité, souvent isolés avec un fort besoin d'appartenance à un groupe.
-Avec l'essort des réseaux sociaux, l'isolement et l'émergence de trends qui suscitent la controverse peuvent être dangeureux et mener les plus influençables à des comportements auto destructeurs. Curlling est un espace où la culture est mise en avant afin de permettre à des jeunes aux valeurs similaires de se rencontrer et nouer des liens.
+Avec l'isolement et l'essort de nouveaux réseaux sociaux, l'émergence de trends qui suscitent la controverse peuvent s'avérer dangeureuses et mener les plus influençables à des comportements auto destructeurs. Curlling est un espace où la culture est mise en avant afin de permettre à des jeunes aux valeurs similaires de se rencontrer et nouer des liens.
 
 ## La communauté
 La communauté Curlling se veut bienveillante et acceuillante. Pour pouvoir devenir acteur et proposer vos propres activités, il vous faudra déjà avoir rencontrer les membres de la communauté en participant à votre première activité.
