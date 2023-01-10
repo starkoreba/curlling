@@ -6,24 +6,17 @@ class ActivitiesController < ApplicationController
     @categories = Category.all
     @activities = Activity.all
 
-    if !params[:address].blank?
+    unless params[:address].blank?
       @activities = @activities.where('city ILIKE ?', "%#{params[:address]}%")
     end
 
-    if !params[:query].blank?
+    unless params[:query].blank?
       @activities = @activities.search_by_title_and_category("%#{params[:query]}%")
     end
 
-    @markers = @activities.geocoded.map do |activity|
-      {
-        lat: activity.latitude,
-        lng: activity.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {activity: activity})
-      }
-    end
+    markers
 
     @activities_cat = @activities.group_by(&:category).values
-
   end
 
   def show
@@ -45,8 +38,6 @@ class ActivitiesController < ApplicationController
       else
         render :new, status: :unprocessable_entity
       end
-    else
-      redirect_to infos_path
     end
   end
 
@@ -75,5 +66,15 @@ class ActivitiesController < ApplicationController
 
   def creator?
     current_user.score > 100
+  end
+
+  def markers
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { activity: activity })
+      }
+    end
   end
 end
