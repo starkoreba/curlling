@@ -1,5 +1,5 @@
 # Curlling
-Curlling with two "L", not the sport. Si t'as pas d'amis, va sur [Curlling](https://www.curlling.me/).
+Curlling with two "L", not the sport. Si t'as pas d'amis, va sur [Curlling](https://curlling.herokuapp.com/).
 
 ## A propos
 Curlling est une application à destination des jeunes en pleine quête d'identité, souvent isolés avec un fort besoin d'appartenance à un groupe.
